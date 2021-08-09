@@ -1,0 +1,332 @@
+<?xml version="1.0"?>
+<TriggernometryExport Version="1">
+  <ExportedFolder FFXIVJobFilterEnabled="True" FFXIVJobFilter="34359738368" Id="a0efc90d-82e0-4787-a99e-adcdd7bff21a" Name="O12S BLU" Enabled="true">
+    <Folders />
+    <Triggers>
+      <Trigger Enabled="true" Sequential="True" Name="0 load party list" Id="91149070-f8a5-4c82-b08a-4cdfad9a2cd4" RegularExpression="">
+        <Actions>
+          <Action OrderNumber="1" DiskFileOp="ReadCSVIntoTableVariable" DiskFileOpName="C:\Users\Clive\AppData\Roaming\Advanced Combat Tracker\Config\o12s.csv" DiskFileOpVar="PartyPriority" LogLevel="-1" MouseX="" MouseY="" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="DiskFile">
+            <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
+          </Action>
+          <Action OrderNumber="2" LogLevel="-1" MouseX="" MouseY="" TableVariableOp="Set" TableVariableExpressionType="Numeric" TableVariableName="PartyPriority" TableVariableExpression="1" TableVariableX="2" TableVariableY="1" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="TableVariable">
+            <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
+          </Action>
+          <Action OrderNumber="3" LogLevel="-1" MouseX="" MouseY="" TableVariableOp="Set" TableVariableExpressionType="Numeric" TableVariableName="PartyPriority" TableVariableExpression="2" TableVariableX="2" TableVariableY="2" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="TableVariable">
+            <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
+          </Action>
+          <Action OrderNumber="4" LogLevel="-1" MouseX="" MouseY="" TableVariableOp="Set" TableVariableExpressionType="Numeric" TableVariableName="PartyPriority" TableVariableExpression="3" TableVariableX="2" TableVariableY="3" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="TableVariable">
+            <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
+          </Action>
+          <Action OrderNumber="5" LogLevel="-1" MouseX="" MouseY="" TableVariableOp="Set" TableVariableExpressionType="Numeric" TableVariableName="PartyPriority" TableVariableExpression="4" TableVariableX="2" TableVariableY="4" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="TableVariable">
+            <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
+          </Action>
+          <Action OrderNumber="6" LogLevel="-1" MouseX="" MouseY="" TableVariableOp="Set" TableVariableExpressionType="Numeric" TableVariableName="PartyPriority" TableVariableExpression="5" TableVariableX="2" TableVariableY="5" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="TableVariable">
+            <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
+          </Action>
+          <Action OrderNumber="7" LogLevel="-1" MouseX="" MouseY="" TableVariableOp="Set" TableVariableExpressionType="Numeric" TableVariableName="PartyPriority" TableVariableExpression="6" TableVariableX="2" TableVariableY="6" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="TableVariable">
+            <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
+          </Action>
+          <Action OrderNumber="8" LogLevel="-1" MouseX="" MouseY="" TableVariableOp="Set" TableVariableExpressionType="Numeric" TableVariableName="PartyPriority" TableVariableExpression="7" TableVariableX="2" TableVariableY="7" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="TableVariable">
+            <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
+          </Action>
+          <Action OrderNumber="9" LogLevel="-1" MouseX="" MouseY="" TableVariableOp="Set" TableVariableExpressionType="Numeric" TableVariableName="PartyPriority" TableVariableExpression="8" TableVariableX="2" TableVariableY="8" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="TableVariable">
+            <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
+          </Action>
+        </Actions>
+        <Condition Enabled="false" Grouping="Or" />
+        <Conditions />
+      </Trigger>
+      <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="4 remote trigger" Id="78548eaf-7090-44da-9079-8a6f34631da6" RegularExpression="^26\|[^|]*\|689\|[^|]*\|[^|]*\|[^|]*\|[^|]*\|[^|]\|(?&lt;target&gt;(?:[^|]*))\|" Scheduling="FromRefirePeriod">
+        <Actions>
+          <Action OrderNumber="1" ListVariableOp="Set" ListVariableName="Tetherlist" ListVariableExpression="B" ListVariableIndex="${tvarrl:PartyPriority[${target}][1]}" LogLevel="-1" MouseX="" MouseY="" TableVariableOp="Set" TableVariableName="TetherTable" TableVariableExpression="B" TableVariableY="1" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="ListVariable">
+            <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
+          </Action>
+          <Action OrderNumber="2" LogLevel="-1" MouseX="" MouseY="" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" TriggerId="777f8784-21bf-42ca-b467-d47dfd431c45" TriggerForce="regexp" ActionType="Trigger">
+            <Condition Enabled="true" Grouping="And">
+              <ConditionSingle Enabled="true" ExpressionL="${lvar:Tetherlist[8]}" ExpressionTypeL="String" ExpressionR="[BFGT]" ExpressionTypeR="String" ConditionType="RegexMatch" />
+              <ConditionSingle Enabled="true" ExpressionL="${lvar:Tetherlist[1]}" ExpressionTypeL="String" ExpressionR="[BFGT]" ExpressionTypeR="String" ConditionType="RegexMatch" />
+              <ConditionSingle Enabled="true" ExpressionL="${lvar:Tetherlist[7]}" ExpressionTypeL="String" ExpressionR="[BFGT]" ExpressionTypeR="String" ConditionType="RegexMatch" />
+              <ConditionSingle Enabled="true" ExpressionL="${lvar:Tetherlist[6]}" ExpressionTypeL="String" ExpressionR="[BFGT]" ExpressionTypeR="String" ConditionType="RegexMatch" />
+              <ConditionSingle Enabled="true" ExpressionL="${lvar:Tetherlist[5]}" ExpressionTypeL="String" ExpressionR="[BFGT]" ExpressionTypeR="String" ConditionType="RegexMatch" />
+              <ConditionSingle Enabled="true" ExpressionL="${lvar:Tetherlist[4]}" ExpressionTypeL="String" ExpressionR="[BFGT]" ExpressionTypeR="String" ConditionType="RegexMatch" />
+              <ConditionSingle Enabled="true" ExpressionL="${lvar:Tetherlist[3]}" ExpressionTypeL="String" ExpressionR="[BFGT]" ExpressionTypeR="String" ConditionType="RegexMatch" />
+              <ConditionSingle Enabled="true" ExpressionL="${lvar:Tetherlist[2]}" ExpressionTypeL="String" ExpressionR="[BFGT]" ExpressionTypeR="String" ConditionType="RegexMatch" />
+            </Condition>
+            <Conditions />
+          </Action>
+        </Actions>
+        <Condition Enabled="false" Grouping="Or" />
+        <Conditions />
+      </Trigger>
+      <Trigger Enabled="false" Name="z" Id="8429eac1-8206-4610-a464-e7b4bbe7b0ac" RegularExpression="">
+        <Actions>
+          <Action OrderNumber="1" LogLevel="-1" MouseX="" MouseY="" UseTTSTextExpression="${tvarrl:PartyPriority[Ling Epsilon][1]}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" Enabled="False" ActionType="UseTTS">
+            <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
+          </Action>
+          <Action OrderNumber="2" LogLevel="-1" MouseX="" MouseY="" VariableOp="SetString" VariableName="TBName" VariableExpression="${tvar:PartyPriority[1][${lvar:Tetherlist.indexof(B)}]} " TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" Enabled="False" ActionType="Variable">
+            <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
+          </Action>
+        </Actions>
+        <Condition Enabled="false" Grouping="Or" />
+        <Conditions />
+      </Trigger>
+      <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="4 local trigger" Id="2d2b152c-1294-44cc-a0a4-7bc85bdc58f7" RegularExpression="^26\|[^|]*\|688\|[^|]*\|[^|]*\|[^|]*\|[^|]*\|[^|]\|(?&lt;target&gt;(?:[^|]*))\|" Scheduling="FromRefirePeriod">
+        <Actions>
+          <Action OrderNumber="1" ListVariableOp="Set" ListVariableName="Tetherlist" ListVariableExpression="G" ListVariableIndex="${tvarrl:PartyPriority[${target}][1]}" LogLevel="-1" MouseX="" MouseY="" TableVariableOp="Set" TableVariableName="TetherTable" TableVariableExpression="B" TableVariableY="1" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="ListVariable">
+            <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
+          </Action>
+          <Action OrderNumber="2" LogLevel="-1" MouseX="" MouseY="" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" TriggerId="777f8784-21bf-42ca-b467-d47dfd431c45" TriggerForce="regexp,conditions" ActionType="Trigger">
+            <Condition Enabled="true" Grouping="And">
+              <ConditionSingle Enabled="true" ExpressionL="${lvar:Tetherlist[8]}" ExpressionTypeL="String" ExpressionR="[BFGT]" ExpressionTypeR="String" ConditionType="RegexMatch" />
+              <ConditionSingle Enabled="true" ExpressionL="${lvar:Tetherlist[1]}" ExpressionTypeL="String" ExpressionR="[BFGT]" ExpressionTypeR="String" ConditionType="RegexMatch" />
+              <ConditionSingle Enabled="true" ExpressionL="${lvar:Tetherlist[7]}" ExpressionTypeL="String" ExpressionR="[BFGT]" ExpressionTypeR="String" ConditionType="RegexMatch" />
+              <ConditionSingle Enabled="true" ExpressionL="${lvar:Tetherlist[6]}" ExpressionTypeL="String" ExpressionR="[BFGT]" ExpressionTypeR="String" ConditionType="RegexMatch" />
+              <ConditionSingle Enabled="true" ExpressionL="${lvar:Tetherlist[5]}" ExpressionTypeL="String" ExpressionR="[BFGT]" ExpressionTypeR="String" ConditionType="RegexMatch" />
+              <ConditionSingle Enabled="true" ExpressionL="${lvar:Tetherlist[4]}" ExpressionTypeL="String" ExpressionR="[BFGT]" ExpressionTypeR="String" ConditionType="RegexMatch" />
+              <ConditionSingle Enabled="true" ExpressionL="${lvar:Tetherlist[3]}" ExpressionTypeL="String" ExpressionR="[BFGT]" ExpressionTypeR="String" ConditionType="RegexMatch" />
+              <ConditionSingle Enabled="true" ExpressionL="${lvar:Tetherlist[2]}" ExpressionTypeL="String" ExpressionR="[BFGT]" ExpressionTypeR="String" ConditionType="RegexMatch" />
+            </Condition>
+            <Conditions />
+          </Action>
+        </Actions>
+        <Condition Enabled="false" Grouping="Or" />
+        <Conditions />
+      </Trigger>
+      <Trigger Enabled="true" Name="5 Logic" Id="777f8784-21bf-42ca-b467-d47dfd431c45" RegularExpression="^.{15}00:[^:]+:REEEEE">
+        <Actions>
+          <Action OrderNumber="1" LogLevel="-1" MouseX="" MouseY="" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" TriggerId="85123c83-0ca5-44be-91e2-e8167ea5a5c7" TriggerForce="regexp" ActionType="Trigger">
+            <Condition Enabled="true" Grouping="And">
+              <ConditionSingle Enabled="true" ExpressionL="${var:OniRake}" ExpressionTypeL="String" ExpressionR="T" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+              <ConditionSingle Enabled="true" ExpressionL="${var:OniColor}" ExpressionTypeL="String" ExpressionR="G" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+              <ConditionSingle Enabled="true" ExpressionL="${var:RakeColor}" ExpressionTypeL="String" ExpressionR="G" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+            </Condition>
+            <Conditions />
+          </Action>
+          <Action OrderNumber="2" LogLevel="-1" MouseX="" MouseY="" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" TriggerId="efedbd45-8e2a-4a4d-bcd3-bd4dd0ed19d0" TriggerForce="regexp" ActionType="Trigger">
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionGroup Enabled="true" Grouping="And">
+                <ConditionSingle Enabled="true" ExpressionL="${var:OniRake}" ExpressionTypeL="String" ExpressionR="F" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                <ConditionSingle Enabled="true" ExpressionL="${var:OniColor}" ExpressionTypeL="String" ExpressionR="G" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                <ConditionSingle Enabled="true" ExpressionL="${var:RakeColor}" ExpressionTypeL="String" ExpressionR="G" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+              </ConditionGroup>
+              <ConditionGroup Enabled="true" Grouping="And">
+                <ConditionSingle Enabled="false" ExpressionL="${var:OniRake}" ExpressionTypeL="String" ExpressionR="F" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                <ConditionSingle Enabled="true" ExpressionL="${var:OniColor}" ExpressionTypeL="String" ExpressionR="B" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                <ConditionSingle Enabled="true" ExpressionL="${var:RakeColor}" ExpressionTypeL="String" ExpressionR="G" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+              </ConditionGroup>
+            </Condition>
+            <Conditions />
+          </Action>
+          <Action OrderNumber="3" LogLevel="-1" MouseX="" MouseY="" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" TriggerId="8ef0f8a7-c5a1-4c1b-b778-dbbff01f6a2e" TriggerForce="regexp" ActionType="Trigger">
+            <Condition Enabled="true" Grouping="And">
+              <ConditionSingle Enabled="true" ExpressionL="${var:OniColor}" ExpressionTypeL="String" ExpressionR="B" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+            </Condition>
+            <Conditions />
+          </Action>
+          <Action OrderNumber="4" LogLevel="-1" MouseX="" MouseY="" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" TriggerId="386ae343-3234-4b11-9c22-c47d48249749" TriggerForce="regexp" Enabled="False" ActionType="Trigger">
+            <Condition Enabled="true" Grouping="And">
+              <ConditionSingle Enabled="true" ExpressionL="${var:OniRake}" ExpressionTypeL="String" ExpressionR="F" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+              <ConditionSingle Enabled="true" ExpressionL="${var:OniColor}" ExpressionTypeL="String" ExpressionR="B" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+              <ConditionSingle Enabled="true" ExpressionL="${var:RakeColor}" ExpressionTypeL="String" ExpressionR="B" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+            </Condition>
+            <Conditions />
+          </Action>
+          <Action OrderNumber="5" LogLevel="-1" MouseX="" MouseY="" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" TriggerId="71bac8a1-0fe8-4ad3-8e5a-4e34091d5ae0" TriggerForce="regexp" Enabled="False" ActionType="Trigger">
+            <Condition Enabled="true" Grouping="And">
+              <ConditionSingle Enabled="false" ExpressionL="${var:OniRake}" ExpressionTypeL="String" ExpressionR="F" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+              <ConditionSingle Enabled="true" ExpressionL="${var:OniColor}" ExpressionTypeL="String" ExpressionR="B" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+              <ConditionSingle Enabled="true" ExpressionL="${var:RakeColor}" ExpressionTypeL="String" ExpressionR="G" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+            </Condition>
+            <Conditions />
+          </Action>
+          <Action OrderNumber="6" LogLevel="-1" MouseX="" MouseY="" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" TriggerId="46e3eff3-522e-4834-966e-88927541c3d3" TriggerForce="regexp" ActionType="Trigger">
+            <Condition Enabled="true" Grouping="And">
+              <ConditionSingle Enabled="false" ExpressionL="${var:OniRake}" ExpressionTypeL="String" ExpressionR="T" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+              <ConditionSingle Enabled="true" ExpressionL="${var:OniColor}" ExpressionTypeL="String" ExpressionR="G" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+              <ConditionSingle Enabled="true" ExpressionL="${var:RakeColor}" ExpressionTypeL="String" ExpressionR="B" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+            </Condition>
+            <Conditions />
+          </Action>
+        </Actions>
+        <Condition Enabled="false" Grouping="Or" />
+        <Conditions />
+      </Trigger>
+      <Trigger Enabled="false" Source="FFXIVNetwork" Name="3 who Tether who" Id="cd0625ab-a2c6-44e6-a912-1074063e3b57" RegularExpression="^35\|[^|]*\|[^|]*\|(?&lt;name1&gt;(?:[^|]*))\|[^|]*\|(?&lt;name2&gt;(?:[^|]*))\|0000\|0000\|001[CD]\|">
+        <Actions />
+        <Condition Enabled="false" Grouping="Or" />
+        <Conditions />
+      </Trigger>
+      <Trigger Enabled="true" Name="case 2" Id="efedbd45-8e2a-4a4d-bcd3-bd4dd0ed19d0" RegularExpression="">
+        <Actions>
+          <Action OrderNumber="1" LogLevel="-1" MouseX="" MouseY="" VariableOp="SetString" VariableName="TBName" VariableExpression="${tvar:PartyPriority[1][${lvar:Tetherlist.indexof(B)}]} " TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable">
+            <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
+          </Action>
+          <Action OrderNumber="2" LogLevel="-1" MouseX="" MouseY="" VariableOp="SetString" VariableName="output" VariableExpression="nothing, ${var:TBName} pop second, Rake TB" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable">
+            <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
+          </Action>
+          <Action OrderNumber="3" LogLevel="-1" MouseX="" MouseY="" UseTTSTextExpression="${var:output}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
+            <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
+          </Action>
+          <Action OrderNumber="4" LogLevel="-1" MouseX="" MouseY="" UseTTSTextExpression="Nothing, ${var:TBName} TB" TextAuraAlignment="TopLeft" TextAuraFontSize="36" TextAuraForeground="Red" TextAuraName="TBName" TextAuraExpression="${var:output}" TextAuraXIniExpression="737" TextAuraYIniExpression="352" TextAuraWIniExpression="822" TextAuraHIniExpression="55" TextAuraOIniExpression="100" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura">
+            <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
+          </Action>
+        </Actions>
+        <Condition Enabled="false" Grouping="Or" />
+        <Conditions />
+      </Trigger>
+      <Trigger Enabled="true" Sequential="True" Name="case 1" Id="85123c83-0ca5-44be-91e2-e8167ea5a5c7" RegularExpression="">
+        <Actions>
+          <Action OrderNumber="1" LogLevel="-1" MouseX="" MouseY="" VariableOp="SetString" VariableName="TBName" VariableExpression="${tvar:PartyPriority[1][${lvar:Tetherlist.indexof(B)}]} " TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable">
+            <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
+          </Action>
+          <Action OrderNumber="2" LogLevel="-1" MouseX="" MouseY="" VariableOp="SetString" VariableName="output" VariableExpression="nothing, ${var:TBName} second and TB" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable">
+            <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
+          </Action>
+          <Action OrderNumber="3" LogLevel="-1" MouseX="" MouseY="" UseTTSTextExpression="${var:output}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
+            <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
+          </Action>
+          <Action OrderNumber="4" LogLevel="-1" MouseX="" MouseY="" UseTTSTextExpression="Nothing, ${var:TBName} TB" TextAuraAlignment="TopLeft" TextAuraFontSize="36" TextAuraForeground="Red" TextAuraName="TBName" TextAuraExpression="${var:output}" TextAuraXIniExpression="737" TextAuraYIniExpression="352" TextAuraWIniExpression="822" TextAuraHIniExpression="55" TextAuraOIniExpression="100" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura">
+            <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
+          </Action>
+        </Actions>
+        <Condition Enabled="false" Grouping="Or" />
+        <Conditions />
+      </Trigger>
+      <Trigger Enabled="true" Name="case 6" Id="46e3eff3-522e-4834-966e-88927541c3d3" RegularExpression="">
+        <Actions>
+          <Action OrderNumber="1" LogLevel="-1" MouseX="" MouseY="" VariableOp="SetString" VariableName="output" VariableExpression="nothing, Rake cross and TB" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable">
+            <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
+          </Action>
+          <Action OrderNumber="2" LogLevel="-1" MouseX="" MouseY="" UseTTSTextExpression="${var:output}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
+            <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
+          </Action>
+          <Action OrderNumber="3" LogLevel="-1" MouseX="" MouseY="" UseTTSTextExpression="Nothing, ${var:TBName} TB" TextAuraAlignment="TopLeft" TextAuraFontSize="36" TextAuraForeground="Red" TextAuraName="TBName" TextAuraExpression="${var:output}" TextAuraXIniExpression="737" TextAuraYIniExpression="352" TextAuraWIniExpression="822" TextAuraHIniExpression="55" TextAuraOIniExpression="100" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura">
+            <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
+          </Action>
+        </Actions>
+        <Condition Enabled="false" Grouping="Or" />
+        <Conditions />
+      </Trigger>
+      <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="3 Oni Tether rake" Id="cc50a2b3-4b8b-4c02-a6d6-f54057e59bcc" RegularExpression="^35\|[^|]*\|[^|]*\|Oni Xeatho\|[^|]*\|Rake Ascarakka\|0000\|0000\|001[CD]\|">
+        <Actions>
+          <Action OrderNumber="1" LogLevel="-1" MouseX="" MouseY="" VariableOp="SetString" VariableName="name2" VariableExpression="${name2}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable">
+            <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
+          </Action>
+          <Action OrderNumber="2" LogLevel="-1" MouseX="" MouseY="" VariableOp="SetString" VariableName="OniRake" VariableExpression="T" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" Enabled="False" ActionType="Variable">
+            <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
+          </Action>
+          <Action OrderNumber="3" LogLevel="-1" MouseX="" MouseY="" VariableOp="SetString" VariableName="OniRake" VariableExpression="T" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" Enabled="False" ActionType="Variable">
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${var:name2}" ExpressionTypeL="String" ExpressionR="Rake Ascarakka" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+              <ConditionSingle Enabled="true" ExpressionL="${name2}" ExpressionTypeL="String" ExpressionR="Rake Ascarakka" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+            </Condition>
+            <Conditions />
+          </Action>
+          <Action OrderNumber="4" LogLevel="-1" MouseX="" MouseY="" VariableOp="SetString" VariableName="OniRake" VariableExpression="F" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" Enabled="False" ActionType="Variable">
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${var:name2}" ExpressionTypeL="String" ExpressionR="Rake Ascarakka" ExpressionTypeR="String" ConditionType="StringNotEqualNocase" />
+              <ConditionSingle Enabled="true" ExpressionL="${name2}" ExpressionTypeL="String" ExpressionR="Rake Ascarakka" ExpressionTypeR="String" ConditionType="StringNotEqualNocase" />
+            </Condition>
+            <Conditions />
+          </Action>
+        </Actions>
+        <Condition Enabled="false" Grouping="Or" />
+        <Conditions />
+      </Trigger>
+      <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="3 Rake Tether Oni" Id="8fe4cb3a-367e-4d55-8e67-f5599c23b053" RegularExpression="^35\|[^|]*\|[^|]*\|Rake Ascarakka\|[^|]*\|Oni Xeatho\|0000\|0000\|001[CD]\|">
+        <Actions>
+          <Action OrderNumber="1" LogLevel="-1" MouseX="" MouseY="" VariableOp="SetString" VariableName="name2" VariableExpression="${name2}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable">
+            <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
+          </Action>
+          <Action OrderNumber="2" LogLevel="-1" MouseX="" MouseY="" VariableOp="SetString" VariableName="OniRake" VariableExpression="T" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable">
+            <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
+          </Action>
+          <Action OrderNumber="3" LogLevel="-1" MouseX="" MouseY="" VariableOp="SetString" VariableName="OniRake" VariableExpression="T" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" Enabled="False" ActionType="Variable">
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${var:name2}" ExpressionTypeL="String" ExpressionR="Rake Ascarakka" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+              <ConditionSingle Enabled="true" ExpressionL="${name2}" ExpressionTypeL="String" ExpressionR="Rake Ascarakka" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+            </Condition>
+            <Conditions />
+          </Action>
+          <Action OrderNumber="4" LogLevel="-1" MouseX="" MouseY="" VariableOp="SetString" VariableName="OniRake" VariableExpression="F" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" Enabled="False" ActionType="Variable">
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${var:name2}" ExpressionTypeL="String" ExpressionR="Rake Ascarakka" ExpressionTypeR="String" ConditionType="StringNotEqualNocase" />
+              <ConditionSingle Enabled="true" ExpressionL="${name2}" ExpressionTypeL="String" ExpressionR="Rake Ascarakka" ExpressionTypeR="String" ConditionType="StringNotEqualNocase" />
+            </Condition>
+            <Conditions />
+          </Action>
+        </Actions>
+        <Condition Enabled="false" Grouping="Or" />
+        <Conditions />
+      </Trigger>
+      <Trigger Enabled="true" Name="2 patch" Id="10a3a387-2968-41ce-909f-80706269a22e" RegularExpression="Omega readies Patch">
+        <Actions>
+          <Action OrderNumber="1" ListVariableName="Tetherlist" LogLevel="-1" MouseX="" MouseY="" VariableOp="SetString" VariableName="OniRake" VariableExpression="F" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="ListVariable">
+            <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
+          </Action>
+          <Action OrderNumber="2" LogLevel="-1" MouseX="" MouseY="" VariableOp="SetString" VariableName="OniRake" VariableExpression="F" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable">
+            <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
+          </Action>
+          <Action OrderNumber="3" LogLevel="-1" MouseX="" MouseY="" TextAuraFontSize="21.75" TextAuraForeground="Red" TextAuraName="Colour" TextAuraExpression="${lvar:Tetherlist[1]}${lvar:Tetherlist[2]}${lvar:Tetherlist[3]}${lvar:Tetherlist[4]}${lvar:Tetherlist[5]}${lvar:Tetherlist[6]}${lvar:Tetherlist[7]}${lvar:Tetherlist[8]}" TextAuraXIniExpression="12" TextAuraYIniExpression="246" TextAuraWIniExpression="342" TextAuraHIniExpression="71" TextAuraOIniExpression="100" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura">
+            <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
+          </Action>
+        </Actions>
+        <Condition Enabled="false" Grouping="Or" />
+        <Conditions />
+      </Trigger>
+      <Trigger Enabled="true" Name="case 3" Id="8ef0f8a7-c5a1-4c1b-b778-dbbff01f6a2e" RegularExpression="">
+        <Actions>
+          <Action OrderNumber="1" LogLevel="-1" MouseX="" MouseY="" VariableOp="SetString" VariableName="TBName" VariableExpression="${tvar:PartyPriority[1][${lvar:Tetherlist.indexof(G)}]} " TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable">
+            <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
+          </Action>
+          <Action OrderNumber="2" LogLevel="-1" MouseX="" MouseY="" VariableOp="SetString" VariableName="output" VariableExpression="${var:TBName} cross and TB" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable">
+            <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
+          </Action>
+          <Action OrderNumber="3" LogLevel="-1" MouseX="" MouseY="" UseTTSTextExpression="${var:output}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
+            <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
+          </Action>
+          <Action OrderNumber="4" LogLevel="-1" MouseX="" MouseY="" UseTTSTextExpression="Nothing, ${var:TBName} TB" TextAuraAlignment="TopLeft" TextAuraFontSize="36" TextAuraForeground="Red" TextAuraName="TBName" TextAuraExpression="${var:output}" TextAuraXIniExpression="737" TextAuraYIniExpression="352" TextAuraWIniExpression="822" TextAuraHIniExpression="55" TextAuraOIniExpression="100" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura">
+            <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
+          </Action>
+        </Actions>
+        <Condition Enabled="false" Grouping="Or" />
+        <Conditions />
+      </Trigger>
+    </Triggers>
+  </ExportedFolder>
+</TriggernometryExport>
