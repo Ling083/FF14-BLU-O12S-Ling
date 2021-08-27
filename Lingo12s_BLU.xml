@@ -5,7 +5,7 @@
     <Triggers>
       <Trigger Enabled="true" Sequential="True" Name="0 load party list" Id="91149070-f8a5-4c82-b08a-4cdfad9a2cd4" RegularExpression="">
         <Actions>
-          <Action OrderNumber="1" DiskFileOp="ReadCSVIntoTableVariable" DiskFileOpName="C:\Users\Clive\AppData\Roaming\Advanced Combat Tracker\Config\o12s.csv" DiskFileOpVar="PartyPriority" LogLevel="-1" MouseX="" MouseY="" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="DiskFile">
+          <Action OrderNumber="1" DiskFileOp="ReadCSVIntoTableVariable" DiskFileOpName="C:\Users\YOUR_USER_NAME\AppData\Roaming\Advanced Combat Tracker\Config\o12s_party_list.csv" DiskFileOpVar="PartyPriority" LogLevel="-1" MouseX="" MouseY="" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="DiskFile">
             <Condition Enabled="false" Grouping="Or" />
           </Action>
           <Action OrderNumber="2" LogLevel="-1" MouseX="" MouseY="" TableVariableOp="Set" TableVariableExpressionType="Numeric" TableVariableName="PartyPriority" TableVariableExpression="1" TableVariableX="2" TableVariableY="1" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="TableVariable">
