@@ -3,7 +3,7 @@
   <ExportedFolder Id="e2541e7a-e9da-4db5-a5b2-aae85bd7c70b" Name="Mari" Enabled="true">
     <Folders />
     <Triggers>
-      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Gigaflare trigger on damage" Id="df0e215e-77dd-40ec-bc1f-e1f0638bf1e8" RegularExpression="1[56]:[^:]*:Dragon-king Thordan:(6D9A|6DD2|6DD3):/" PrevActionsRefire="Deny" PeriodRefire="Deny" RefirePeriodExpression="2">
+      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Gigaflare trigger on damage" Id="df0e215e-77dd-40ec-bc1f-e1f0638bf1e8" RegularExpression="^1[56]:[^:]*:Dragon-king Thordan:(6D9A|6DD2|6DD3):/" PrevActionsRefire="Deny" PeriodRefire="Deny" RefirePeriodExpression="2">
         <Actions>
           <Action OrderNumber="1" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" UseTTSTextExpression="heal" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
             <Condition Enabled="false" Grouping="Or" />
@@ -12,7 +12,7 @@
         <Condition Enabled="false" Grouping="Or" />
         <Conditions />
       </Trigger>
-      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Gigaflare trigger on cast" Id="b1394017-53db-4500-8769-c95075081115" RegularExpression="14:[^:]*:Dragon-king Thordan:6D9A:">
+      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Gigaflare trigger on cast" Id="b1394017-53db-4500-8769-c95075081115" RegularExpression="^14:[^:]*:Dragon-king Thordan:6D9A:">
         <Actions>
           <Action OrderNumber="1" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" UseTTSTextExpression="Gigaflare" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
             <Condition Enabled="false" Grouping="Or" />
