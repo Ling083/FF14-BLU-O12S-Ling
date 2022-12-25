@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <TriggernometryExport Version="1">
-  <ExportedFolder Id="e2541e7a-e9da-4db5-a5b2-aae85bd7c70b" ZoneFilterRegularExpression="^Dragonsong's\ Reprise\ \(Ultimate\)$" Name="Mx" Enabled="true">
+  <ExportedFolder ZoneFilterEnabled="True" Id="e2541e7a-e9da-4db5-a5b2-aae85bd7c70b" ZoneFilterRegularExpression="^Dragonsong's\ Reprise\ \(Ultimate\)$" Name="Mx" Enabled="true">
     <Folders />
     <Triggers>
       <Trigger Enabled="true" Source="FFXIVNetwork" Name="Gigaflare trigger on damage" Id="df0e215e-77dd-40ec-bc1f-e1f0638bf1e8" RegularExpression="^1[56]:[^:]*:Dragon-king Thordan:(6D9A|6DD2|6DD3):/" PrevActionsRefire="Deny" PeriodRefire="Deny" RefirePeriodExpression="2">
