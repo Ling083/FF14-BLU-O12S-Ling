@@ -1,7 +1,22 @@
 <?xml version="1.0"?>
 <TriggernometryExport Version="1">
   <ExportedFolder ZoneFilterEnabled="True" Id="e2541e7a-e9da-4db5-a5b2-aae85bd7c70b" ZoneFilterRegularExpression="^Dragonsong's\ Reprise\ \(Ultimate\)$" Name="Mx" Enabled="true">
-    <Folders />
+    <Folders>
+      <Folder Id="13eb1ec6-fc2d-426b-aa95-b76be67f3d47" Name="akhM" Enabled="true">
+        <Folders />
+        <Triggers>
+          <Trigger Enabled="true" Source="FFXIVNetwork" Name="ready akh morn" Id="03b7ce49-cdd4-4d21-8878-c89a1609a8b2" RegularExpression="^14:[^:]*:Dragon-king Thordan:6D93:">
+            <Actions>
+              <Action OrderNumber="1" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" UseTTSTextExpression="akh morn Mitigation" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
+          </Trigger>
+        </Triggers>
+      </Folder>
+    </Folders>
     <Triggers>
       <Trigger Enabled="true" Source="FFXIVNetwork" Name="Gigaflare trigger on damage" Id="df0e215e-77dd-40ec-bc1f-e1f0638bf1e8" RegularExpression="^1[56]:[^:]*:Dragon-king Thordan:(6D9A|6DD2|6DD3):/" PrevActionsRefire="Deny" PeriodRefire="Deny" RefirePeriodExpression="2">
         <Actions>
@@ -17,7 +32,7 @@
           <Action OrderNumber="1" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" TriggerOp="DisableTrigger" TriggerId="eef908ae-7123-46de-9f6e-989004514e7d" ActionType="Trigger">
             <Condition Enabled="false" Grouping="Or" />
           </Action>
-          <Action OrderNumber="2" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" UseTTSTextExpression="Gigaflare" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" ExecutionDelayExpression="3000">
+          <Action OrderNumber="2" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" UseTTSTextExpression="Gigaflare Mitigation" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" ExecutionDelayExpression="3000">
             <Condition Enabled="false" Grouping="Or" />
           </Action>
         </Actions>
@@ -26,7 +41,7 @@
       </Trigger>
       <Trigger Enabled="true" Name="Dragon-king Thordan readies Gigaflare's Edge" Id="eef908ae-7123-46de-9f6e-989004514e7d" RegularExpression="Dragon-king Thordan readies Gigaflare's Edge">
         <Actions>
-          <Action OrderNumber="1" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" UseTTSTextExpression="Gigaflare" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" ExecutionDelayExpression="3000">
+          <Action OrderNumber="1" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" UseTTSTextExpression="Gigaflare Mitigation" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" ExecutionDelayExpression="3000">
             <Condition Enabled="false" Grouping="Or" />
           </Action>
         </Actions>
