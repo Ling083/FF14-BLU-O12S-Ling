@@ -20,7 +20,7 @@
     <Triggers>
       <Trigger Enabled="true" Source="FFXIVNetwork" Name="Gigaflare trigger on damage" Id="df0e215e-77dd-40ec-bc1f-e1f0638bf1e8" RegularExpression="^1[56]:[^:]*:Dragon-king Thordan:(6D9A|6DD2|6DD3):/" PrevActionsRefire="Deny" PeriodRefire="Deny" RefirePeriodExpression="2">
         <Actions>
-          <Action OrderNumber="1" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" UseTTSTextExpression="heal" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
+          <Action OrderNumber="1" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" UseTTSTextExpression="damage" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
             <Condition Enabled="false" Grouping="Or" />
           </Action>
         </Actions>
