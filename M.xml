@@ -12,7 +12,7 @@
         <Condition Enabled="false" Grouping="Or" />
         <Conditions />
       </Trigger>
-      <Trigger Enabled="true" Name="Gigaflare trigger on cast" Id="b1394017-53db-4500-8769-c95075081115" RegularExpression="14:[^:]*:Dragon-king Thordan:6D9A:">
+      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Gigaflare trigger on cast" Id="b1394017-53db-4500-8769-c95075081115" RegularExpression="14:[^:]*:Dragon-king Thordan:6D9A:">
         <Actions>
           <Action OrderNumber="1" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" UseTTSTextExpression="Gigaflare" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
             <Condition Enabled="false" Grouping="Or" />
