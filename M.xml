@@ -5,29 +5,27 @@
       <Folder Id="13eb1ec6-fc2d-426b-aa95-b76be67f3d47" Name="akhM" Enabled="true">
         <Folders />
         <Triggers>
-          <Trigger Enabled="true" Source="FFXIVNetwork" Name="ready akh morn" Id="03b7ce49-cdd4-4d21-8878-c89a1609a8b2" RegularExpression="^14:[^:]*:Dragon-king Thordan:6D93:">
+          <Trigger Enabled="true" Name="ready akh morn" Id="03b7ce49-cdd4-4d21-8878-c89a1609a8b2" RegularExpression="14:[^:]*:Dragon-king Thordan:6D93:">
             <Actions>
               <Action OrderNumber="1" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" UseTTSTextExpression="akh morn Mitigation" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
-            <Conditions />
           </Trigger>
         </Triggers>
       </Folder>
     </Folders>
     <Triggers>
-      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Gigaflare trigger on damage" Id="df0e215e-77dd-40ec-bc1f-e1f0638bf1e8" RegularExpression="^1[56]:[^:]*:Dragon-king Thordan:(6D9A|6DD2|6DD3):/" PrevActionsRefire="Deny" PeriodRefire="Deny" RefirePeriodExpression="2">
+      <Trigger Enabled="true" Name="Gigaflare trigger on damage" Id="df0e215e-77dd-40ec-bc1f-e1f0638bf1e8" RegularExpression="1[56]:[^:]*:Dragon-king Thordan:(6D9A|6DD2|6DD3):/" PrevActionsRefire="Deny" PeriodRefire="Deny" RefirePeriodExpression="2">
         <Actions>
           <Action OrderNumber="1" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" UseTTSTextExpression="damage" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
             <Condition Enabled="false" Grouping="Or" />
           </Action>
         </Actions>
         <Condition Enabled="false" Grouping="Or" />
-        <Conditions />
       </Trigger>
-      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Gigaflare trigger on cast" Id="b1394017-53db-4500-8769-c95075081115" RegularExpression="^14:[^:]*:Dragon-king Thordan:6D9A:">
+      <Trigger Enabled="true" Name="Gigaflare trigger on cast" Id="b1394017-53db-4500-8769-c95075081115" RegularExpression="14:[^:]*:Dragon-king Thordan:6D9A:">
         <Actions>
           <Action OrderNumber="1" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" TriggerOp="DisableTrigger" TriggerId="eef908ae-7123-46de-9f6e-989004514e7d" ActionType="Trigger">
             <Condition Enabled="false" Grouping="Or" />
@@ -37,7 +35,6 @@
           </Action>
         </Actions>
         <Condition Enabled="false" Grouping="Or" />
-        <Conditions />
       </Trigger>
       <Trigger Enabled="true" Name="Dragon-king Thordan readies Gigaflare's Edge" Id="eef908ae-7123-46de-9f6e-989004514e7d" RegularExpression="Dragon-king Thordan readies Gigaflare's Edge">
         <Actions>
@@ -46,7 +43,6 @@
           </Action>
         </Actions>
         <Condition Enabled="false" Grouping="Or" />
-        <Conditions />
       </Trigger>
     </Triggers>
   </ExportedFolder>
