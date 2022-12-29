@@ -18,7 +18,7 @@
       <Folder Id="3f9632b7-b289-40ae-9103-5d519964fd84" Name="giga" Enabled="true">
         <Folders />
         <Triggers>
-          <Trigger Enabled="true" Name="Dragon-king Thordan readies Gigaflare's Edge" Id="eef908ae-7123-46de-9f6e-989004514e7d" RegularExpression="Dragon-king Thordan readies Gigaflare's Edge">
+          <Trigger Enabled="false" Name="Dragon-king Thordan readies Gigaflare's Edge" Id="eef908ae-7123-46de-9f6e-989004514e7d" RegularExpression="Dragon-king Thordan readies Gigaflare's Edge">
             <Actions>
               <Action OrderNumber="1" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" UseTTSTextExpression="Gigaflare Mitigation" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" ExecutionDelayExpression="3000">
                 <Condition Enabled="false" Grouping="Or" />
@@ -31,15 +31,21 @@
               <Action OrderNumber="1" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" TriggerOp="DisableTrigger" TriggerId="eef908ae-7123-46de-9f6e-989004514e7d" ActionType="Trigger">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="2" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" UseTTSTextExpression="Gigaflare Mitigation" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" ExecutionDelayExpression="3000">
+              <Action OrderNumber="2" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="SystemBeep">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="3" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" UseTTSTextExpression="Gigaflare Mitigation" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" ExecutionDelayExpression="3000">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
           </Trigger>
-          <Trigger Enabled="true" Source="FFXIVNetwork" Name="Gigaflare trigger on damage" Id="df0e215e-77dd-40ec-bc1f-e1f0638bf1e8" RegularExpression="^2[12]\|[^|]*\|[^|]*\|Dragon-king Thordan\|(6D9A|6DD2|6DD3)\|" PrevActionsRefire="Deny" PeriodRefire="Deny" RefirePeriodExpression="2">
+          <Trigger Enabled="false" Source="FFXIVNetwork" Name="Gigaflare trigger on damage" Id="df0e215e-77dd-40ec-bc1f-e1f0638bf1e8" RegularExpression="^2[12]\|[^|]*\|[^|]*\|Dragon-king Thordan\|(6D9A|6DD2|6DD3)\|" PrevActionsRefire="Deny" PeriodRefire="Deny" RefirePeriodExpression="2">
             <Actions>
-              <Action OrderNumber="1" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" UseTTSTextExpression="damage" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
+              <Action OrderNumber="1" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="SystemBeep">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" UseTTSTextExpression="damage" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
             </Actions>
