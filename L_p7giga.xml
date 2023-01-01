@@ -15,28 +15,28 @@
               <ConditionSingle Enabled="true" ExpressionL="${id)" ExpressionTypeL="String" ExpressionR="6D99" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
             </Condition>
           </Action>
-          <Action OrderNumber="3" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" VariableOp="SetNumeric" VariableName="L_Giga${id}x" VariableExpression="${x}" TableVariableOp="Set" TableVariableName="L_Giga6D99" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" Enabled="False" ActionType="Variable">
+          <Action OrderNumber="3" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" VariableOp="SetNumeric" VariableName="L_Giga${id}x" VariableExpression="${x}" TableVariableOp="Set" TableVariableName="L_Giga6D99" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable">
             <Condition Enabled="false" Grouping="Or" />
           </Action>
-          <Action OrderNumber="4" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" VariableOp="SetNumeric" VariableName="L_Giga${id}y" VariableExpression="${y}" TableVariableOp="Set" TableVariableName="L_Giga6D99" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" Enabled="False" ActionType="Variable">
+          <Action OrderNumber="4" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" VariableOp="SetNumeric" VariableName="L_Giga${id}y" VariableExpression="${y}" TableVariableOp="Set" TableVariableName="L_Giga6D99" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable">
             <Condition Enabled="false" Grouping="Or" />
           </Action>
-          <Action OrderNumber="5" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" VariableOp="SetNumeric" VariableName="L_Giga6D9Ax" VariableExpression="${x}" TableVariableOp="Set" TableVariableName="L_Giga6D99" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable">
+          <Action OrderNumber="5" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" VariableOp="SetNumeric" VariableName="L_Giga6D9Ax" VariableExpression="${x}" TableVariableOp="Set" TableVariableName="L_Giga6D99" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" Enabled="False" ActionType="Variable">
             <Condition Enabled="true" Grouping="Or">
               <ConditionSingle Enabled="true" ExpressionL="${id)" ExpressionTypeL="String" ExpressionR="6D9A" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
             </Condition>
           </Action>
-          <Action OrderNumber="6" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" VariableOp="SetNumeric" VariableName="L_Giga6D9Ay" VariableExpression="${y}" TableVariableOp="Set" TableVariableName="L_Giga6D99" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable">
+          <Action OrderNumber="6" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" VariableOp="SetNumeric" VariableName="L_Giga6D9Ay" VariableExpression="${y}" TableVariableOp="Set" TableVariableName="L_Giga6D99" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" Enabled="False" ActionType="Variable">
             <Condition Enabled="true" Grouping="Or">
               <ConditionSingle Enabled="true" ExpressionL="${id)" ExpressionTypeL="String" ExpressionR="6D9A" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
             </Condition>
           </Action>
-          <Action OrderNumber="7" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" VariableOp="SetNumeric" VariableName="L_Giga6DD2x" VariableExpression="${x}" TableVariableOp="Set" TableVariableName="L_Giga6D99" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable">
+          <Action OrderNumber="7" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" VariableOp="SetNumeric" VariableName="L_Giga6DD2x" VariableExpression="${x}" TableVariableOp="Set" TableVariableName="L_Giga6D99" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" Enabled="False" ActionType="Variable">
             <Condition Enabled="true" Grouping="Or">
               <ConditionSingle Enabled="true" ExpressionL="${id)" ExpressionTypeL="String" ExpressionR="6DD2" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
             </Condition>
           </Action>
-          <Action OrderNumber="8" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" VariableOp="SetNumeric" VariableName="L_Giga6DD2y" VariableExpression="${y}" TableVariableOp="Set" TableVariableName="L_Giga6D99" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable">
+          <Action OrderNumber="8" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" VariableOp="SetNumeric" VariableName="L_Giga6DD2y" VariableExpression="${y}" TableVariableOp="Set" TableVariableName="L_Giga6D99" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" Enabled="False" ActionType="Variable">
             <Condition Enabled="true" Grouping="Or">
               <ConditionSingle Enabled="true" ExpressionL="${id)" ExpressionTypeL="String" ExpressionR="6DD2" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
             </Condition>
