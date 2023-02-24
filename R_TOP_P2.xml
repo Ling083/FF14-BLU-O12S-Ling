@@ -189,7 +189,7 @@
           <ConditionSingle Enabled="true" ExpressionL="${tvar:TopLongP2Headlist.height}" ExpressionTypeL="Numeric" ExpressionR="12" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
           <ConditionGroup Enabled="true" Grouping="Or">
             <ConditionSingle Enabled="true" ExpressionL="TopLongP2Mechanics" ExpressionTypeL="String" ExpressionR="Optical Laser" ExpressionTypeR="String" ConditionType="ListContains" />
-            <ConditionSingle Enabled="true" ExpressionL="${tvar:TopLongP2Table.height}" ExpressionTypeL="Numeric" ExpressionR="7" ExpressionTypeR="Numeric" ConditionType="NumericGreaterEqual" />
+            <ConditionSingle Enabled="true" ExpressionL="${tvar:TopLongP2Table.height}" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericGreaterEqual" />
           </ConditionGroup>
         </Condition>
       </Trigger>
