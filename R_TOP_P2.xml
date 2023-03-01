@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <TriggernometryExport Version="1">
-  <ExportedFolder Id="7a911828-ef12-41eb-8653-95c2dd5814b7" ZoneFilterRegularExpression="^The\ Omega\ Protocol\ \(Ultimate\)$" Name="TOP p2 synergy LongPP" Enabled="false">
+  <ExportedFolder FfxivZoneFilterRegularExpression="^347$" Id="7a911828-ef12-41eb-8653-95c2dd5814b7" Name="TOP p2 synergy LongPP" Enabled="false">
     <Folders>
       <Folder Id="935270a4-a663-483c-8b68-d0cbb38c896f" Name="folder" Enabled="false">
         <Folders />
