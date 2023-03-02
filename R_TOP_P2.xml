@@ -37,7 +37,7 @@
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
           </Trigger>
-          <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Optimized Fire III" Id="4626e275-d1f2-4f3c-a7cf-008d700595c4" RegularExpression="^(?&lt;type&gt;21)\|(?&lt;timestamp&gt;[^|]*)\|(?&lt;sourceId&gt;[^|]*)\|(?&lt;source&gt;[^|]*)\|(?&lt;id&gt;[^|]*)\|(?&lt;ability&gt;Optimized Fire III)\|(?&lt;targetId&gt;[^|]*)\|(?&lt;target&gt;[^|]*)\|(?&lt;flags&gt;[^|]*)\|(?&lt;damage&gt;[^|]*)\|(?:[^|]*\|){14}(?&lt;targetCurrentHp&gt;[^|]*)\|(?&lt;targetMaxHp&gt;[^|]*)\|(?&lt;targetCurrentMp&gt;[^|]*)\|(?&lt;targetMaxMp&gt;[^|]*)\|(?:[^|]*\|){2}(?&lt;targetX&gt;[^|]*)\|(?&lt;targetY&gt;[^|]*)\|(?&lt;targetZ&gt;[^|]*)\|">
+          <Trigger Enabled="true" Source="FFXIVNetwork" Name="Optimized Fire III" Id="4626e275-d1f2-4f3c-a7cf-008d700595c4" RegularExpression="^(?&lt;type&gt;21)\|(?&lt;timestamp&gt;[^|]*)\|(?&lt;sourceId&gt;[^|]*)\|(?&lt;source&gt;[^|]*)\|(?&lt;id&gt;[^|]*)\|(?&lt;ability&gt;Optimized Fire III)\|(?&lt;targetId&gt;[^|]*)\|(?&lt;target&gt;[^|]*)\|(?&lt;flags&gt;[^|]*)\|(?&lt;damage&gt;[^|]*)\|(?:[^|]*\|){14}(?&lt;targetCurrentHp&gt;[^|]*)\|(?&lt;targetMaxHp&gt;[^|]*)\|(?&lt;targetCurrentMp&gt;[^|]*)\|(?&lt;targetMaxMp&gt;[^|]*)\|(?:[^|]*\|){2}(?&lt;targetX&gt;[^|]*)\|(?&lt;targetY&gt;[^|]*)\|(?&lt;targetZ&gt;[^|]*)\|">
             <Actions>
               <Action OrderNumber="1" UseTTSTextExpression="player, X, Y, cross product of X&amp;Y coordinate (eye x player) (positive or negative which means left or right side of eye laser), disance from eye" UseTTSExclusive="False" Enabled="False" ActionType="UseTTS">
                 <Condition Enabled="false" Grouping="Or" />
@@ -60,13 +60,16 @@
               <Action OrderNumber="7" VariableOp="SetString" VariableName="LongTOPp2StackLaserx" TableVariableOp="Set" TableVariableExpressionType="Numeric" TableVariableName="TopLongP2Fire${target}" TableVariableExpression="round(${tvar:TopLongP2Optical Unit[2][1]}*(${targetY}-100))-(${tvar:TopLongP2Optical Unit[3][1]}*(${targetX}-100),3)" TableVariableX="4" TableVariableY="1" ActionType="TableVariable">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="8" VariableOp="SetString" VariableName="LongTOPp2StackLaserx" TableVariableOp="Set" TableVariableExpressionType="Numeric" TableVariableName="TopLongP2Fire${target}" TableVariableExpression="pow((${ptvarrl:TopLongP2Table[Optical Unit][2]}-${targetX}+100),2)+pow((${ptvarrl:TopLongP2Table[Optical Unit][3]}-${targetY}+100),2)" TableVariableX="5" TableVariableY="1" ActionType="TableVariable">
+              <Action OrderNumber="8" VariableOp="SetString" VariableName="LongTOPp2StackLaserx" TableVariableOp="Set" TableVariableExpressionType="Numeric" TableVariableName="TopLongP2Fire${target}" TableVariableExpression="((${ptvarrl:TopLongP2Table[Optical Unit][2]}*(${targetX}-100))+(${ptvarrl:TopLongP2Table[Optical Unit][3]}*(${targetY}-100)))/sqrt(pow(${ptvarrl:TopLongP2Table[Optical Unit][3]},2)+pow(${ptvarrl:TopLongP2Table[Optical Unit][2]},2))" TableVariableX="5" TableVariableY="1" ActionType="TableVariable">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="9" TableVariableOp="Append" TableVariableName="TopLongP2Fire${target}" TableVariableTarget="TopLongP2Table" ActionType="TableVariable" Asynchronous="False">
+              <Action OrderNumber="9" VariableOp="SetString" VariableName="LongTOPp2StackLaserx" TableVariableOp="Set" TableVariableExpressionType="Numeric" TableVariableName="TopLongP2Fire${target}" TableVariableExpression="sqrt(pow(${ptvarrl:TopLongP2Table[Optical Unit][2]}-${targetX}+100,2)+pow(${ptvarrl:TopLongP2Table[Optical Unit][3]}-${targetY}+100,2))" TableVariableX="5" TableVariableY="1" Enabled="False" ActionType="TableVariable">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="10" TriggerId="b4c684a6-ca9f-42a7-a7ec-1bcfd14944d9" TriggerForce="regexp" Enabled="False" ActionType="Trigger">
+              <Action OrderNumber="10" TableVariableOp="Append" TableVariableName="TopLongP2Fire${target}" TableVariableTarget="TopLongP2Table" ActionType="TableVariable" ExecutionDelayExpression="1" Asynchronous="False">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="11" TriggerId="b4c684a6-ca9f-42a7-a7ec-1bcfd14944d9" TriggerForce="regexp" Enabled="False" ActionType="Trigger">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
             </Actions>
@@ -86,7 +89,7 @@
               <Action OrderNumber="4" ListVariableOp="Set" ListVariableName="TopLongP2Headlist${id}" TableVariableOp="Set" TableVariableName="TopLongP2Headlist${targetId}${id}" TableVariableExpression="${timestamp}" TableVariableX="3" TableVariableY="1" ActionType="TableVariable">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="5" TableVariableOp="Append" TableVariableName="TopLongP2Headlist${targetId}${id}" TableVariableTarget="TopLongP2Headlist" ActionType="TableVariable">
+              <Action OrderNumber="5" TableVariableOp="Append" TableVariableName="TopLongP2Headlist${targetId}${id}" TableVariableTarget="TopLongP2Headlist" ActionType="TableVariable" ExecutionDelayExpression="1" Asynchronous="False">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
               <Action OrderNumber="6" TriggerId="b4c684a6-ca9f-42a7-a7ec-1bcfd14944d9" TriggerForce="regexp" ActionType="Trigger">
@@ -128,12 +131,12 @@
       </Folder>
     </Folders>
     <Triggers>
-      <Trigger Enabled="true" Name="action" Id="b4c684a6-ca9f-42a7-a7ec-1bcfd14944d9" RegularExpression="" PrevActionsRefire="Deny" PeriodRefire="Deny" RefirePeriodExpression="5000">
+      <Trigger Enabled="true" Sequential="True" Name="action" Id="b4c684a6-ca9f-42a7-a7ec-1bcfd14944d9" RegularExpression="" PrevActionsRefire="Deny" PeriodRefire="Deny" RefirePeriodExpression="5000">
         <Actions>
           <Action OrderNumber="1" VariableOp="SetString" VariableName="TopLongP2Aura" VariableExpression="${_triggername}" Enabled="False" ActionType="Variable">
             <Condition Enabled="false" Grouping="Or" />
           </Action>
-          <Action OrderNumber="2" TriggerId="2792eb7d-d266-42e6-abc6-2b4e2aeac6c5" TriggerForce="regexp" ActionType="Trigger">
+          <Action OrderNumber="2" TriggerId="2792eb7d-d266-42e6-abc6-2b4e2aeac6c5" TriggerForce="regexp" ActionType="Trigger" ExecutionDelayExpression="100">
             <Condition Enabled="false" Grouping="Or" />
           </Action>
           <Action OrderNumber="3" TriggerId="0445a4fd-30bc-4278-a6c8-fde4ec3a7148" TriggerForce="regexp" ActionType="Trigger">
@@ -256,7 +259,46 @@
           <Action OrderNumber="4" VariableOp="SetString" VariableName="TopLongP2AuraCall" VariableExpression="swap ${lvar:TopLongP2AuraCall1[3]} ${lvar:TopLongP2AuraCall1[1]} " ActionType="Variable">
             <Condition Enabled="false" Grouping="Or" />
           </Action>
-          <Action OrderNumber="5" DiscordWebhookURL="${tvar:basic[2][13]}" DiscordWebhookMessage="${var:Say}" UseTTSTextExpression="food finished ending craft ${var:ReuseFoodN} food used" TextAuraAlignment="MiddleLeft" TextAuraFontSize="27.75" TextAuraForeground="Red" TextAuraName="TopLongP2AuraCall" TextAuraExpression="${var:TopLongP2AuraCall} ${tvar:TopLongP2Headlist.height}" TextAuraXIniExpression="676" TextAuraYIniExpression="304" TextAuraWIniExpression="500" TextAuraHIniExpression="163" TextAuraOIniExpression="100" TextAuraXTickExpression="1200" TextAuraYTickExpression="800" TextAuraWTickExpression="600" TextAuraHTickExpression="100" TextAuraOTickExpression="100" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura">
+          <Action OrderNumber="5" DiscordWebhookURL="${tvar:basic[2][13]}" DiscordWebhookMessage="${var:Say}" UseTTSTextExpression="food finished ending craft ${var:ReuseFoodN} food used" TextAuraAlignment="MiddleLeft" TextAuraFontSize="27.75" TextAuraForeground="Red" TextAuraName="TopLongP2AuraCall" TextAuraExpression="${var:TopLongP2AuraCall}" TextAuraXIniExpression="676" TextAuraYIniExpression="304" TextAuraWIniExpression="500" TextAuraHIniExpression="163" TextAuraOIniExpression="100" TextAuraXTickExpression="1200" TextAuraYTickExpression="800" TextAuraWTickExpression="600" TextAuraHTickExpression="100" TextAuraOTickExpression="100" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="6" UseTTSTextExpression="${var:TopLongP2AuraCall}" ActionType="UseTTS">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="7" VariableOp="SetString" VariableName="TopLongP2AuraCall" VariableExpression="swap ${lvar:TopLongP2AuraCall1[1]} ${lvar:TopLongP2AuraCall1[3]}" TableVariableOp="Append" TableVariableName="TopLongP2AuraCall1" TableVariableTarget="LongLogP2${_timestamp}" Enabled="False" ActionType="TableVariable">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+        </Actions>
+        <Condition Enabled="true" Grouping="And">
+          <ConditionSingle Enabled="false" ExpressionL="${tvarrl:TopLongP2Table[${tvar:TopLongP2Headlist[1][11]}][4]}" ExpressionTypeL="Numeric" ExpressionR="${tvarrl:TopLongP2Table[${tvar:TopLongP2Headlist[1][12]}][4]}" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+          <ConditionGroup Enabled="true" Grouping="Or">
+            <ConditionGroup Enabled="true" Grouping="And">
+              <ConditionSingle Enabled="true" ExpressionL="${tvarrl:TopLongP2Table[${tvar:TopLongP2Headlist[1][11]}][3]}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+              <ConditionSingle Enabled="true" ExpressionL="${tvarrl:TopLongP2Table[${tvar:TopLongP2Headlist[1][12]}][3]}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+            </ConditionGroup>
+            <ConditionGroup Enabled="true" Grouping="And">
+              <ConditionSingle Enabled="true" ExpressionL="${tvarrl:TopLongP2Table[${tvar:TopLongP2Headlist[1][11]}][3]}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+              <ConditionSingle Enabled="true" ExpressionL="${tvarrl:TopLongP2Table[${tvar:TopLongP2Headlist[1][12]}][3]}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+            </ConditionGroup>
+          </ConditionGroup>
+          <ConditionSingle Enabled="true" ExpressionL="${tvarrl:TopLongP2Table[${tvar:TopLongP2Headlist[1][11]}][4]}" ExpressionTypeL="Numeric" ExpressionR="${tvarrl:TopLongP2Table[${tvar:TopLongP2Headlist[1][12]}][4]}" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+        </Condition>
+      </Trigger>
+      <Trigger Enabled="true" Sequential="True" Name="call out 12" Id="0445a4fd-30bc-4278-a6c8-fde4ec3a7148" RegularExpression="">
+        <Actions>
+          <Action OrderNumber="1" VariableOp="SetString" VariableName="TopLongP2AuraCall1" VariableExpression="${tvar:TopLongP2Headlist[1][12]} ${tvarrl:TopLongP2TetherList[${tvar:TopLongP2Headlist[1][12]}][1]}" ActionType="Variable">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="2" ListVariableOp="Split" ListVariableName="TopLongP2AuraCall1" ListVariableExpression=" " ListVariableTarget="TopLongP2AuraCall1" ActionType="ListVariable">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="3" VariableOp="SetString" VariableName="TopLongP2AuraCall" VariableExpression="swap ${lvar:TopLongP2AuraCall1[3]} ${lvar:TopLongP2AuraCall1[1]} " ActionType="Variable">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="4" VariableOp="SetString" VariableName="TopLongP2AuraCall" VariableExpression="swap ${tvarrl:TopLongP2TetherList[${tvar:TopLongP2Headlist[1][12]}][1]} ${tvar:TopLongP2Headlist[1][12]}" Enabled="False" ActionType="Variable">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="5" DiscordWebhookURL="${tvar:basic[2][13]}" DiscordWebhookMessage="${var:Say}" UseTTSTextExpression="food finished ending craft ${var:ReuseFoodN} food used" TextAuraAlignment="MiddleLeft" TextAuraFontSize="27.75" TextAuraForeground="Red" TextAuraName="TopLongP2AuraCall" TextAuraExpression="${var:TopLongP2AuraCall}" TextAuraXIniExpression="676" TextAuraYIniExpression="304" TextAuraWIniExpression="500" TextAuraHIniExpression="163" TextAuraOIniExpression="100" TextAuraXTickExpression="1200" TextAuraYTickExpression="800" TextAuraWTickExpression="600" TextAuraHTickExpression="100" TextAuraOTickExpression="100" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura">
             <Condition Enabled="false" Grouping="Or" />
           </Action>
           <Action OrderNumber="6" UseTTSTextExpression="${var:TopLongP2AuraCall}" ActionType="UseTTS">
@@ -278,44 +320,7 @@
               <ConditionSingle Enabled="true" ExpressionL="${tvarrl:TopLongP2Table[${tvar:TopLongP2Headlist[1][12]}][3]}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
             </ConditionGroup>
           </ConditionGroup>
-        </Condition>
-      </Trigger>
-      <Trigger Enabled="true" Sequential="True" Name="call out 12" Id="0445a4fd-30bc-4278-a6c8-fde4ec3a7148" RegularExpression="">
-        <Actions>
-          <Action OrderNumber="1" VariableOp="SetString" VariableName="TopLongP2AuraCall1" VariableExpression="${tvar:TopLongP2Headlist[1][12]} ${tvarrl:TopLongP2TetherList[${tvar:TopLongP2Headlist[1][12]}][1]}" ActionType="Variable">
-            <Condition Enabled="false" Grouping="Or" />
-          </Action>
-          <Action OrderNumber="2" ListVariableOp="Split" ListVariableName="TopLongP2AuraCall1" ListVariableExpression=" " ListVariableTarget="TopLongP2AuraCall1" ActionType="ListVariable">
-            <Condition Enabled="false" Grouping="Or" />
-          </Action>
-          <Action OrderNumber="3" VariableOp="SetString" VariableName="TopLongP2AuraCall" VariableExpression="swap ${lvar:TopLongP2AuraCall1[3]} ${lvar:TopLongP2AuraCall1[1]} " ActionType="Variable">
-            <Condition Enabled="false" Grouping="Or" />
-          </Action>
-          <Action OrderNumber="4" VariableOp="SetString" VariableName="TopLongP2AuraCall" VariableExpression="swap ${tvarrl:TopLongP2TetherList[${tvar:TopLongP2Headlist[1][12]}][1]} ${tvar:TopLongP2Headlist[1][12]}" Enabled="False" ActionType="Variable">
-            <Condition Enabled="false" Grouping="Or" />
-          </Action>
-          <Action OrderNumber="5" DiscordWebhookURL="${tvar:basic[2][13]}" DiscordWebhookMessage="${var:Say}" UseTTSTextExpression="food finished ending craft ${var:ReuseFoodN} food used" TextAuraAlignment="MiddleLeft" TextAuraFontSize="27.75" TextAuraForeground="Red" TextAuraName="TopLongP2AuraCall" TextAuraExpression="${var:TopLongP2AuraCall} ${tvar:TopLongP2Headlist.height}" TextAuraXIniExpression="676" TextAuraYIniExpression="304" TextAuraWIniExpression="500" TextAuraHIniExpression="163" TextAuraOIniExpression="100" TextAuraXTickExpression="1200" TextAuraYTickExpression="800" TextAuraWTickExpression="600" TextAuraHTickExpression="100" TextAuraOTickExpression="100" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura">
-            <Condition Enabled="false" Grouping="Or" />
-          </Action>
-          <Action OrderNumber="6" UseTTSTextExpression="${var:TopLongP2AuraCall}" ActionType="UseTTS">
-            <Condition Enabled="false" Grouping="Or" />
-          </Action>
-          <Action OrderNumber="7" VariableOp="SetString" VariableName="TopLongP2AuraCall" VariableExpression="swap ${lvar:TopLongP2AuraCall1[1]} ${lvar:TopLongP2AuraCall1[3]}" TableVariableOp="Append" TableVariableName="TopLongP2AuraCall1" TableVariableTarget="LongLogP2${_timestamp}" Enabled="False" ActionType="TableVariable">
-            <Condition Enabled="false" Grouping="Or" />
-          </Action>
-        </Actions>
-        <Condition Enabled="true" Grouping="And">
-          <ConditionSingle Enabled="true" ExpressionL="${tvarrl:TopLongP2Table[${tvar:TopLongP2Headlist[1][11]}][4]}" ExpressionTypeL="Numeric" ExpressionR="${tvarrl:TopLongP2Table[${tvar:TopLongP2Headlist[1][12]}][4]}" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
-          <ConditionGroup Enabled="true" Grouping="Or">
-            <ConditionGroup Enabled="true" Grouping="And">
-              <ConditionSingle Enabled="true" ExpressionL="${tvarrl:TopLongP2Table[${tvar:TopLongP2Headlist[1][11]}][3]}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
-              <ConditionSingle Enabled="true" ExpressionL="${tvarrl:TopLongP2Table[${tvar:TopLongP2Headlist[1][12]}][3]}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
-            </ConditionGroup>
-            <ConditionGroup Enabled="true" Grouping="And">
-              <ConditionSingle Enabled="true" ExpressionL="${tvarrl:TopLongP2Table[${tvar:TopLongP2Headlist[1][11]}][3]}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
-              <ConditionSingle Enabled="true" ExpressionL="${tvarrl:TopLongP2Table[${tvar:TopLongP2Headlist[1][12]}][3]}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
-            </ConditionGroup>
-          </ConditionGroup>
+          <ConditionSingle Enabled="false" ExpressionL="${tvarrl:TopLongP2Table[${tvar:TopLongP2Headlist[1][11]}][4]}" ExpressionTypeL="Numeric" ExpressionR="${tvarrl:TopLongP2Table[${tvar:TopLongP2Headlist[1][12]}][4]}" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
         </Condition>
       </Trigger>
       <Trigger Enabled="true" Sequential="True" Name="call out no swap" Id="62e7a2ef-4e08-4fb2-af37-db0b26d6733c" RegularExpression="">
@@ -332,7 +337,7 @@
           <Action OrderNumber="4" VariableOp="SetString" VariableName="TopLongP2AuraCall" VariableExpression="no swap ${tvar:TopLongP2Headlist[1][12]} ${tvar:TopLongP2Headlist[1][11]}" Enabled="False" ActionType="Variable">
             <Condition Enabled="false" Grouping="Or" />
           </Action>
-          <Action OrderNumber="5" DiscordWebhookURL="${tvar:basic[2][13]}" DiscordWebhookMessage="${var:Say}" UseTTSTextExpression="food finished ending craft ${var:ReuseFoodN} food used" TextAuraAlignment="MiddleLeft" TextAuraFontSize="27.75" TextAuraForeground="Red" TextAuraName="TopLongP2AuraCall" TextAuraExpression="${var:TopLongP2AuraCall} ${tvar:TopLongP2Headlist.height}" TextAuraXIniExpression="676" TextAuraYIniExpression="304" TextAuraWIniExpression="500" TextAuraHIniExpression="163" TextAuraOIniExpression="100" TextAuraXTickExpression="1200" TextAuraYTickExpression="800" TextAuraWTickExpression="600" TextAuraHTickExpression="100" TextAuraOTickExpression="100" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura">
+          <Action OrderNumber="5" DiscordWebhookURL="${tvar:basic[2][13]}" DiscordWebhookMessage="${var:Say}" UseTTSTextExpression="food finished ending craft ${var:ReuseFoodN} food used" TextAuraAlignment="MiddleLeft" TextAuraFontSize="27.75" TextAuraForeground="Red" TextAuraName="TopLongP2AuraCall" TextAuraExpression="${var:TopLongP2AuraCall}" TextAuraXIniExpression="676" TextAuraYIniExpression="304" TextAuraWIniExpression="500" TextAuraHIniExpression="163" TextAuraOIniExpression="100" TextAuraXTickExpression="1200" TextAuraYTickExpression="800" TextAuraWTickExpression="600" TextAuraHTickExpression="100" TextAuraOTickExpression="100" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura">
             <Condition Enabled="false" Grouping="Or" />
           </Action>
           <Action OrderNumber="6" UseTTSTextExpression="No swap" ActionType="UseTTS">
