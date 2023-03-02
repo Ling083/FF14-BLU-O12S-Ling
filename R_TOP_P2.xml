@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <TriggernometryExport Version="1">
-  <ExportedFolder FfxivZoneFilterRegularExpression="^347$" Id="7a911828-ef12-41eb-8653-95c2dd5814b7" Name="TOP p2 synergy LongPP" Enabled="false">
+  <ExportedFolder FFXIVZoneFilterEnabled="True" FfxivZoneFilterRegularExpression="^1122$" Id="7a911828-ef12-41eb-8653-95c2dd5814b7" Name="TOP p2 synergy LongPP" Enabled="true">
     <Folders>
       <Folder Id="935270a4-a663-483c-8b68-d0cbb38c896f" Name="folder" Enabled="false">
         <Folders />
@@ -130,7 +130,7 @@
     <Triggers>
       <Trigger Enabled="true" Name="action" Id="b4c684a6-ca9f-42a7-a7ec-1bcfd14944d9" RegularExpression="" PrevActionsRefire="Deny" PeriodRefire="Deny" RefirePeriodExpression="5000">
         <Actions>
-          <Action OrderNumber="1" VariableOp="SetString" VariableName="TopLongP2Aura" VariableExpression="${_triggername}" ActionType="Variable">
+          <Action OrderNumber="1" VariableOp="SetString" VariableName="TopLongP2Aura" VariableExpression="${_triggername}" Enabled="False" ActionType="Variable">
             <Condition Enabled="false" Grouping="Or" />
           </Action>
           <Action OrderNumber="2" TriggerId="2792eb7d-d266-42e6-abc6-2b4e2aeac6c5" TriggerForce="regexp" ActionType="Trigger">
