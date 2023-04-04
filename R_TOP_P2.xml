@@ -473,7 +473,7 @@
               <ConditionSingle Enabled="true" ExpressionL="TopLongP2Mechanics" ExpressionTypeL="String" ExpressionR="Optical Laser" ExpressionTypeR="String" ConditionType="ListContains" />
             </Condition>
           </Action>
-          <Action OrderNumber="2" UseTTSTextExpression="${ptvarrl:LongLogP21679294622[Optical Unit][2]}" TextAuraFontSize="8.25" TextAuraName="12412423" TextAuraExpression="123 ${ptvarrl:LongLogP21679294622[Optical Unit][2]}" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura">
+          <Action OrderNumber="2" UseTTSTextExpression="${ptvarrl:LongLogP21679294622[Optical Unit][2]}" TextAuraFontSize="8.25" TextAuraName="12412423" TextAuraExpression="123 ${ptvarrl:LongLogP21679294622[Optical Unit][2]}" TextAuraFontName="Microsoft Sans Serif" Enabled="False" ActionType="TextAura">
             <Condition Enabled="false" Grouping="Or" />
           </Action>
         </Actions>
