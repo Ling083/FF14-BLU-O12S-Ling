@@ -1,0 +1,552 @@
+<?xml version="1.0"?>
+<TriggernometryExport Version="1">
+  <ExportedFolder FfxivZoneFilterRegularExpression="^1122$" FFXIVJobFilterEnabled="True" FFXIVJobFilter="34359738368" Id="4c757730-b7cb-450f-b717-29585d0f0519" Name="BLU E12S" Enabled="true">
+    <Folders>
+      <Folder FfxivZoneFilterRegularExpression="^1122$" Id="f3f4b259-7009-493d-815b-dc872b862db6" Name="p1" Enabled="true">
+        <Folders>
+          <Folder Id="af8c08cc-fb61-4bba-932e-a87fe86aa407" Name="folder" Enabled="true">
+            <Folders />
+            <Triggers>
+              <Trigger Enabled="false" Source="FFXIVNetwork" Sequential="True" Name="Optical Laser position" Id="322c2423-cd90-4b0e-86c6-8a1ef0608b2b" RegularExpression="^(?&lt;type&gt;20)\|(?&lt;timestamp&gt;[^|]*)\|(?&lt;sourceId&gt;[^|]*)\|(?&lt;source&gt;Optical Unit)\|(?&lt;id&gt;[^|]*)\|(?&lt;ability&gt;Optical Laser)\|(?&lt;targetId&gt;[^|]*)\|(?&lt;target&gt;[^|]*)\|(?&lt;castTime&gt;[^|]*)\|(?&lt;x&gt;[^|]*)\|(?&lt;y&gt;[^|]*)\|(?&lt;z&gt;[^|]*)\|(?&lt;heading&gt;[^|]*)\|">
+                <Actions>
+                  <Action OrderNumber="1" VariableOp="SetString" VariableName="TopLongBLUe12sAuraText" VariableExpression="${var:TopLongBLUe12sAuraText}+${_triggername}" Enabled="False" ActionType="Variable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="2" ListVariableOp="Push" ListVariableName="TopLongBLUe12sMechanics" ListVariableExpression="Optical Laser" ActionType="ListVariable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="3" VariableOp="SetString" VariableName="LongBLUe12sp2StackLaserx" TableVariableOp="Set" TableVariableName="TopLongBLUe12s${source}" TableVariableExpression="Optical Unit" TableVariableX="1" TableVariableY="1" ActionType="TableVariable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="4" VariableOp="SetString" VariableName="LongBLUe12sp2StackLaserx" TableVariableOp="Set" TableVariableExpressionType="Numeric" TableVariableName="TopLongBLUe12s${source}" TableVariableExpression="round(${x}-100,2)" TableVariableX="2" TableVariableY="1" ActionType="TableVariable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="5" VariableOp="SetString" VariableName="LongBLUe12sp2StackLaserx" TableVariableOp="Set" TableVariableExpressionType="Numeric" TableVariableName="TopLongBLUe12s${source}" TableVariableExpression="round(${y}-100,2)" TableVariableX="3" TableVariableY="1" ActionType="TableVariable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="6" VariableOp="SetString" VariableName="LongBLUe12sp2StackLaserx" TableVariableOp="Set" TableVariableExpressionType="Numeric" TableVariableName="TopLongBLUe12s${source}" TableVariableExpression="1" TableVariableX="4" TableVariableY="1" Enabled="False" ActionType="TableVariable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="7" VariableOp="SetString" VariableName="LongBLUe12sp2StackLaserx" TableVariableOp="Set" TableVariableExpressionType="Numeric" TableVariableName="TopLongBLUe12s${source}" TableVariableExpression="1" TableVariableX="5" TableVariableY="1" Enabled="False" ActionType="TableVariable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="8" TableVariableOp="Append" TableVariableName="TopLongBLUe12s${source}" TableVariableTarget="TopLongBLUe12sTable" ActionType="TableVariable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="9" TriggerId="ffce3fa1-1e77-4e18-9e0f-c7bc19b3cca5" TriggerForce="regexp" Enabled="False" ActionType="Trigger" ExecutionDelayExpression="4000">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or" />
+              </Trigger>
+              <Trigger Enabled="false" Source="FFXIVNetwork" Sequential="True" Name="Optimized Fire III" Id="82a6a0d3-370f-4a55-b6b5-edd9c0187cb3" RegularExpression="^(?&lt;type&gt;21)\|(?&lt;timestamp&gt;[^|]*)\|(?&lt;sourceId&gt;[^|]*)\|(?&lt;source&gt;[^|]*)\|(?&lt;id&gt;[^|]*)\|(?&lt;ability&gt;Optimized Fire III)\|(?&lt;targetId&gt;[^|]*)\|(?&lt;target&gt;[^|]*)\|(?&lt;flags&gt;[^|]*)\|(?&lt;damage&gt;[^|]*)\|(?:[^|]*\|){14}(?&lt;targetCurrentHp&gt;[^|]*)\|(?&lt;targetMaxHp&gt;[^|]*)\|(?&lt;targetCurrentMp&gt;[^|]*)\|(?&lt;targetMaxMp&gt;[^|]*)\|(?:[^|]*\|){2}(?&lt;targetX&gt;[^|]*)\|(?&lt;targetY&gt;[^|]*)\|(?&lt;targetZ&gt;[^|]*)\|" Scheduling="FromLastAction">
+                <Actions>
+                  <Action OrderNumber="1" UseTTSTextExpression="player, X, Y, cross product of X&amp;Y coordinate (eye x player) (positive or negative which means left or right side of eye laser), disance from eye" UseTTSExclusive="False" Enabled="False" ActionType="UseTTS">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="2" VariableOp="SetString" VariableName="TopLongBLUe12sAuraText" VariableExpression="${var:TopLongBLUe12sAuraText}+${_triggername}" Enabled="False" ActionType="Variable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="3" ListVariableOp="Push" ListVariableName="TopLongBLUe12sMechanics" ListVariableExpression="Optimized Fire III" Enabled="False" ActionType="ListVariable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="4" VariableOp="SetString" VariableName="LongBLUe12sp2StackLaserx" TableVariableOp="Set" TableVariableName="TopLongBLUe12sFire${target}" TableVariableExpression="${target}" TableVariableX="1" TableVariableY="1" ActionType="TableVariable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="5" VariableOp="SetString" VariableName="LongBLUe12sp2StackLaserx" TableVariableOp="Set" TableVariableExpressionType="Numeric" TableVariableName="TopLongBLUe12sFire${target}" TableVariableExpression="round(${targetX}-100,2)" TableVariableX="2" TableVariableY="1" ActionType="TableVariable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="6" VariableOp="SetString" VariableName="LongBLUe12sp2StackLaserx" TableVariableOp="Set" TableVariableExpressionType="Numeric" TableVariableName="TopLongBLUe12sFire${target}" TableVariableExpression="round(${targetY}-100,2)" TableVariableX="3" TableVariableY="1" ActionType="TableVariable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="7" VariableOp="SetString" VariableName="LongBLUe12sp2StackLaserx" TableVariableOp="Set" TableVariableExpressionType="Numeric" TableVariableName="TopLongBLUe12sFire${target}" TableVariableExpression="round(${tvar:TopLongBLUe12sOptical Unit[2][1]}*(${targetY}-100))-(${tvar:TopLongBLUe12sOptical Unit[3][1]}*(${targetX}-100),3)" TableVariableX="4" TableVariableY="1" ActionType="TableVariable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="8" VariableOp="SetString" VariableName="LongBLUe12sp2StackLaserx" TableVariableOp="Set" TableVariableExpressionType="Numeric" TableVariableName="TopLongBLUe12sFire${target}" TableVariableExpression="((${ptvarrl:TopLongBLUe12sTable[Optical Unit][2]}*(${targetX}-100))+(${ptvarrl:TopLongBLUe12sTable[Optical Unit][3]}*(${targetY}-100)))/sqrt(pow(${ptvarrl:TopLongBLUe12sTable[Optical Unit][3]},2)+pow(${ptvarrl:TopLongBLUe12sTable[Optical Unit][2]},2))" TableVariableX="5" TableVariableY="1" Enabled="False" ActionType="TableVariable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="9" VariableOp="SetString" VariableName="LongBLUe12sp2StackLaserx" TableVariableOp="Set" TableVariableExpressionType="Numeric" TableVariableName="TopLongBLUe12sFire${target}" TableVariableExpression="${tvarrl:TopLongBLUe12sTable[Optical Unit][2]}*round(${targetY}-100,2)+${tvarrl:TopLongBLUe12sTable[Optical Unit][1]}*round(${targetX}-100,2)" TableVariableX="5" TableVariableY="1" Enabled="False" ActionType="TableVariable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="10" VariableOp="SetString" VariableName="LongBLUe12sp2StackLaserx" TableVariableOp="Set" TableVariableExpressionType="Numeric" TableVariableName="TopLongBLUe12sFire${target}" TableVariableExpression="round((${tvarrl:TopLongBLUe12sTable[Optical Unit][2]}*${tvar:TopLongBLUe12sFire${target}[3][1]}+${tvarrl:TopLongBLUe12sTable[Optical Unit][1]}*${tvar:TopLongBLUe12sFire${target}[2][1]})/(sqrt(pow(${tvar:TopLongBLUe12sFire${target}[3][1]},2)+pow(${tvar:TopLongBLUe12sFire${target}[2][1]},2))),2)" TableVariableX="5" TableVariableY="1" ActionType="TableVariable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="11" VariableOp="SetString" VariableName="LongBLUe12sp2StackLaserx" TableVariableOp="Set" TableVariableExpressionType="Numeric" TableVariableName="TopLongBLUe12sFire${target}" TableVariableExpression="sqrt(pow(${ptvarrl:TopLongBLUe12sTable[Optical Unit][2]}-${targetX}+100,2)+pow(${ptvarrl:TopLongBLUe12sTable[Optical Unit][3]}-${targetY}+100,2))" TableVariableX="5" TableVariableY="1" Enabled="False" ActionType="TableVariable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="12" TableVariableOp="Append" TableVariableName="TopLongBLUe12sFire${target}" TableVariableTarget="TopLongBLUe12sTable" ActionType="TableVariable" Asynchronous="False">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="13" TriggerId="ffce3fa1-1e77-4e18-9e0f-c7bc19b3cca5" TriggerForce="regexp" Enabled="False" ActionType="Trigger">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or" />
+              </Trigger>
+              <Trigger Enabled="false" Source="FFXIVNetwork" Sequential="True" Name="12 general head markers" Id="94f2fa8b-7d21-416c-818a-17782ef2b178" RegularExpression="^(?&lt;type&gt;27)\|(?&lt;timestamp&gt;[^|]*)\|(?&lt;targetId&gt;[^|]*)\|(?&lt;target&gt;[^|]*)\|(?:[^|]*\|){2}(?&lt;id&gt;[^|]*)\|" Scheduling="FromLastAction">
+                <Actions>
+                  <Action OrderNumber="1" VariableOp="SetString" VariableName="TopLongBLUe12sAuraText" VariableExpression="${var:TopLongBLUe12sAuraText}+${_triggername}" Enabled="False" ActionType="Variable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="2" ListVariableOp="Set" ListVariableName="TopLongBLUe12sHeadlist${id}" TableVariableOp="Set" TableVariableName="TopLongBLUe12sHeadlist${targetId}${id}" TableVariableExpression="${target}" TableVariableX="1" TableVariableY="1" ActionType="TableVariable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="3" ListVariableOp="Set" ListVariableName="TopLongBLUe12sHeadlist${id}" TableVariableOp="Set" TableVariableName="TopLongBLUe12sHeadlist${targetId}${id}" TableVariableExpression="${id}" TableVariableX="2" TableVariableY="1" ActionType="TableVariable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="4" ListVariableOp="Set" ListVariableName="TopLongBLUe12sHeadlist${id}" TableVariableOp="Set" TableVariableName="TopLongBLUe12sHeadlist${targetId}${id}" TableVariableExpression="${timestamp}" TableVariableX="3" TableVariableY="1" ActionType="TableVariable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="5" ListVariableOp="Set" ListVariableName="TopLongBLUe12sHeadlist${id}" TableVariableOp="Set" TableVariableExpressionType="Numeric" TableVariableName="TopLongBLUe12sHeadlist${targetId}${id}" TableVariableExpression="hex2dec(${id})" TableVariableX="4" TableVariableY="1" ActionType="TableVariable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="6" TableVariableOp="Append" TableVariableName="TopLongBLUe12sHeadlist${targetId}${id}" TableVariableTarget="TopLongBLUe12sHeadlist" ActionType="TableVariable" ExecutionDelayExpression="1" Asynchronous="False">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="7" TriggerId="ffce3fa1-1e77-4e18-9e0f-c7bc19b3cca5" TriggerForce="regexp" ActionType="Trigger">
+                    <Condition Enabled="false" Grouping="And">
+                      <ConditionSingle Enabled="true" ExpressionL="${tvar:TopLongBLUe12sHeadlist.height}" ExpressionTypeL="Numeric" ExpressionR="12" ExpressionTypeR="Numeric" ConditionType="NumericGreaterEqual" />
+                      <ConditionSingle Enabled="true" ExpressionL="TopLongBLUe12sMechanics" ExpressionTypeL="String" ExpressionR="Optical Laser" ExpressionTypeR="String" ConditionType="ListContains" />
+                    </Condition>
+                  </Action>
+                  <Action OrderNumber="8" ListVariableOp="Push" ListVariableName="TopLongBLUe12sMechanics" ListVariableExpression="${id}" ActionType="ListVariable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="9" TriggerId="14ea53e0-12cf-4d87-a1e0-8ff198f61096" TriggerForce="regexp" Enabled="False" ActionType="Trigger">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or" />
+              </Trigger>
+              <Trigger Enabled="false" Source="FFXIVNetwork" Sequential="True" Name="Tether pair" Id="75161875-0d66-4197-a124-b3bea843113a" RegularExpression="^(?&lt;type&gt;35)\|(?&lt;timestamp&gt;[^|]*)\|(?&lt;sourceId&gt;[^|]*)\|(?&lt;source&gt;[^|]* [^|]*)\|(?&lt;targetId&gt;[^|]*)\|(?&lt;target&gt;[^|]*[^|]*)\|(?:[^|]*\|){2}(?&lt;id&gt;[^|]*)\|" Scheduling="FromLastAction">
+                <Actions>
+                  <Action OrderNumber="1" TableVariableOp="Set" TableVariableName="TopLongBLUe12sTether${source}" TableVariableExpression="${source}" TableVariableX="1" TableVariableY="1" Enabled="False" ActionType="TableVariable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="2" TableVariableOp="Set" TableVariableName="TopLongBLUe12sTether${source}" TableVariableExpression="${target}" TableVariableX="2" TableVariableY="1" Enabled="False" ActionType="TableVariable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="3" TableVariableOp="Append" TableVariableName="TopLongBLUe12sTether${source}" TableVariableTarget="TopLongBLUe12sTetherList" Enabled="False" ActionType="TableVariable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="4" TableVariableOp="Set" TableVariableName="TopLongBLUe12sTether${target}" TableVariableExpression="${target}" TableVariableX="1" TableVariableY="1" Enabled="False" ActionType="TableVariable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="5" TableVariableOp="Set" TableVariableName="TopLongBLUe12sTether${target}" TableVariableExpression="${source}" TableVariableX="2" TableVariableY="1" Enabled="False" ActionType="TableVariable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="6" TableVariableOp="Append" TableVariableName="TopLongBLUe12sTether${target}" TableVariableTarget="TopLongBLUe12sTetherList" Enabled="False" ActionType="TableVariable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="7" TriggerId="14ea53e0-12cf-4d87-a1e0-8ff198f61096" TriggerForce="regexp" Enabled="False" ActionType="Trigger" ExecutionDelayExpression="2000">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or" />
+              </Trigger>
+              <Trigger Enabled="false" Name="Tether pair find out shaps" Id="14ea53e0-12cf-4d87-a1e0-8ff198f61096" RegularExpression="" PrevActionsRefire="Deny" PeriodRefire="Deny" RefirePeriodExpression="5000">
+                <Actions>
+                  <Action OrderNumber="1" SystemBeepFreqExpression="700" Enabled="False" ActionType="SystemBeep">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="2" TableVariableOp="Set" TableVariableName="TopLongBLUe12sHeadlistDec" TableVariableExpression="Stack_marker" TableVariableX="1" TableVariableY="1" ActionType="TableVariable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="3" TableVariableOp="Set" TableVariableName="TopLongBLUe12sHeadlistDec" TableVariableExpression="${tvar:TopLongBLUe12sHeadlist[2][1]}" TableVariableX="2" TableVariableY="1" ActionType="TableVariable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="4" ActionType="Loop" RefireRequeue="False">
+                    <LoopCondition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${_loopiterator}" ExpressionTypeL="Numeric" ExpressionR="7" ExpressionTypeR="Numeric" ConditionType="NumericLessEqual" />
+                    </LoopCondition>
+                    <LoopActions>
+                      <Action OrderNumber="1" TableVariableOp="Set" TableVariableExpressionType="Numeric" TableVariableName="TopLongBLUe12sHeadlistDec" TableVariableExpression="${tvar:TopLongBLUe12sHeadlist[1][${_loopiterator}+3]}" TableVariableX="1" TableVariableY="${_loopiterator}+2" ActionType="TableVariable">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                      <Action OrderNumber="2" TableVariableOp="Set" TableVariableExpressionType="Numeric" TableVariableName="TopLongBLUe12sHeadlistDec" TableVariableExpression="${tvar:TopLongBLUe12sHeadlist[4][${_loopiterator}+3]}" TableVariableX="2" TableVariableY="${_loopiterator}+2" ActionType="TableVariable">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </LoopActions>
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                </Actions>
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${tvar:TopLongBLUe12sTetherList.height}" ExpressionTypeL="Numeric" ExpressionR="8" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  <ConditionSingle Enabled="false" ExpressionL="${tvar:TopLongBLUe12sHeadlist.height}" ExpressionTypeL="Numeric" ExpressionR="10" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                </Condition>
+              </Trigger>
+              <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="list" Id="dc2c11ab-d937-4468-b3b1-c98255fbffd7" RegularExpression="^(?&lt;type&gt;35)\|(?&lt;timestamp&gt;[^|]*)\|(?&lt;sourceId&gt;[^|]*)\|(?&lt;source&gt;[^|]*)\|(?&lt;targetId&gt;[^|]*)\|(?&lt;target&gt;[^|]*)\|(?:[^|]*\|){2}(?&lt;id&gt;[^|]*)\|" Scheduling="FromLastAction">
+                <Actions>
+                  <Action OrderNumber="1" VariableOp="SetNumeric" VariableName="PID" VariableExpression="${_ffxivprocid}" ActionType="Variable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="2" ListVariableOp="Push" ListVariableName="TopLongBLUe12sP1Lion" ListVariableExpression="${source}" ActionType="ListVariable">
+                    <Condition Enabled="true" Grouping="And">
+                      <ConditionSingle Enabled="true" ExpressionL="${target}" ExpressionTypeL="String" ExpressionR="Beastly Sculpture" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                      <ConditionSingle Enabled="false" ExpressionL="${source}" ExpressionTypeL="String" ExpressionR="Beastly Sculpture" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                      <ConditionSingle Enabled="true" ExpressionL="TopLongBLUe12sP1Lion" ExpressionTypeL="String" ExpressionR="${target}" ExpressionTypeR="String" ConditionType="ListDoesNotContain" />
+                      <ConditionSingle Enabled="true" ExpressionL="TopLongBLUe12sP1Lion" ExpressionTypeL="String" ExpressionR="${source}" ExpressionTypeR="String" ConditionType="ListDoesNotContain" />
+                    </Condition>
+                  </Action>
+                  <Action OrderNumber="3" ListVariableOp="Push" ListVariableName="TopLongBLUe12sP1Lion" ListVariableExpression="${target}" ActionType="ListVariable">
+                    <Condition Enabled="true" Grouping="And">
+                      <ConditionSingle Enabled="false" ExpressionL="${target}" ExpressionTypeL="String" ExpressionR="Beastly Sculpture" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                      <ConditionSingle Enabled="true" ExpressionL="${source}" ExpressionTypeL="String" ExpressionR="Beastly Sculpture" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                      <ConditionSingle Enabled="true" ExpressionL="TopLongBLUe12sP1Lion" ExpressionTypeL="String" ExpressionR="${target}" ExpressionTypeR="String" ConditionType="ListDoesNotContain" />
+                      <ConditionSingle Enabled="true" ExpressionL="TopLongBLUe12sP1Lion" ExpressionTypeL="String" ExpressionR="${source}" ExpressionTypeR="String" ConditionType="ListDoesNotContain" />
+                    </Condition>
+                  </Action>
+                  <Action OrderNumber="4" TriggerId="684b3440-0c52-4099-b121-73c16334b9d1" TriggerForce="regexp" ActionType="Trigger">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="5" TriggerId="56f00cd6-f8d1-4de8-8f0a-cb27a635bc74" TriggerForce="regexp" ActionType="Trigger">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or" />
+              </Trigger>
+            </Triggers>
+          </Folder>
+        </Folders>
+        <Triggers>
+          <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="delete variables" Id="9e7f52be-d455-4454-9e3c-6f69a357ebb3" RegularExpression="^(?&lt;type&gt;2[12])\|(?&lt;timestamp&gt;[^|]*)\|(?&lt;sourceId&gt;[^|]*)\|(?&lt;source&gt;Beastly Sculpture)\|(?&lt;id&gt;[^|]*)\|(?&lt;ability&gt;[^|]*)\|(?&lt;targetId&gt;[^|]*)\|(?&lt;target&gt;[^|]*)\|(?&lt;flags&gt;[^|]*)\|(?&lt;damage&gt;[^|]*)\|(?:[^|]*\|){14}(?&lt;targetCurrentHp&gt;[^|]*)\|(?&lt;targetMaxHp&gt;[^|]*)\|(?&lt;targetCurrentMp&gt;[^|]*)\|(?&lt;targetMaxMp&gt;[^|]*)\|(?:[^|]*\|){2}(?&lt;targetX&gt;[^|]*)\|(?&lt;targetY&gt;[^|]*)\|(?&lt;targetZ&gt;[^|]*)\|(?&lt;targetHeading&gt;[^|]*)\|(?&lt;currentHp&gt;[^|]*)\|(?&lt;maxHp&gt;[^|]*)\|(?&lt;currentMp&gt;[^|]*)\|(?&lt;maxMp&gt;[^|]*)\|(?:[^|]*\|){2}(?&lt;x&gt;[^|]*)\|(?&lt;y&gt;[^|]*)\|(?&lt;z&gt;[^|]*)\|(?&lt;heading&gt;[^|]*)\|(?&lt;sequence&gt;[^|]*)\|(?&lt;targetIndex&gt;[^|]*)\|(?&lt;targetCount&gt;[^|]*)\|" PrevActionsRefire="Deny" PeriodRefire="Deny">
+            <Actions>
+              <Action OrderNumber="1" TextAuraOp="DeactivateAuraRegex" TextAuraFontSize="8.25" TextAuraName="TopLongBLUe12s" TextAuraFontName="Microsoft Sans Serif" Enabled="False" ActionType="TextAura">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" TableVariableOp="UnsetRegex" TableVariableName="TopLongBLUe12s" ActionType="TableVariable" ExecutionDelayExpression="2000">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="3" ListVariableName="TopLongBLUe12sMechanics" VariableOp="UnsetRegex" VariableName="TopLongBLUe12s" ActionType="Variable" ExecutionDelayExpression="2000">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="4" ListVariableOp="UnsetRegex" ListVariableName="TopLongBLUe12s" VariableName="TopLongBLUe12sMechanics" ActionType="ListVariable" ExecutionDelayExpression="2000">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="5" ActionType="SystemBeep">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="6" ActionType="SystemBeep">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+          <Trigger Enabled="false" Source="FFXIVNetwork" Sequential="True" Name="Omega|7AF8|Atomic Ray|Cancelled|" Id="46f2f910-7178-4913-aad4-a960d869ad6e" RegularExpression="^(?&lt;type&gt;23)\|(?&lt;timestamp&gt;[^|]*)\|(?&lt;sourceId&gt;[^|]*)\|(?&lt;source&gt;Omega)\|(?&lt;id&gt;7AF8)\|(?&lt;name&gt;[^|]*)\|(?&lt;reason&gt;[^|]*)\|">
+            <Actions>
+              <Action OrderNumber="1" TableVariableOp="UnsetRegex" TableVariableName="TopLongBLUe12s" Enabled="False" ActionType="TableVariable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" FolderId="af8c08cc-fb61-4bba-932e-a87fe86aa407" ActionType="Folder">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="3" ListVariableOp="Push" ListVariableName="TopLongBLUe12sMechanics" ListVariableExpression="Atomic Ray" Enabled="False" ActionType="ListVariable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="4" DiscordWebhookURL="${tvar:basic[2][13]}" DiscordWebhookMessage="${var:Say}" UseTTSTextExpression="food finished ending craft ${var:ReuseFoodN} food used" TextAuraAlignment="MiddleLeft" TextAuraFontSize="27.75" TextAuraForeground="Red" TextAuraName="TopLongBLUe12sAura" TextAuraExpression="${tvar:TopLongBLUe12sHeadlist.height}" TextAuraXIniExpression="766" TextAuraYIniExpression="228" TextAuraWIniExpression="500" TextAuraHIniExpression="100" TextAuraOIniExpression="100" TextAuraXTickExpression="1200" TextAuraYTickExpression="800" TextAuraWTickExpression="600" TextAuraHTickExpression="100" TextAuraOTickExpression="100" TextAuraFontName="Microsoft Sans Serif" Enabled="False" ActionType="TextAura" ExecutionDelayExpression="1000">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="5" VariableOp="SetString" VariableName="TopLongBLUe12sAuraText" VariableExpression="${var:TopLongBLUe12sAuraText}+${_triggername}" Enabled="False" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="6" LogMessageText="LogP2|Atomic Ray|${timestamp}|" LogLevel="Info" ActionType="SystemBeep" ExecutionDelayExpression="75000">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="7" TableVariableOp="Copy" TableVariableName="TopLongBLUe12sTable" TableVariableTarget="LongLogP2${timestamp}" Enabled="False" ActionType="TableVariable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="8" FolderOp="DisableFolder" FolderId="af8c08cc-fb61-4bba-932e-a87fe86aa407" Enabled="False" ActionType="Folder">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="9" TriggerId="9e7f52be-d455-4454-9e3c-6f69a357ebb3" TriggerForce="regexp,conditions" Enabled="False" ActionType="Trigger">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+          <Trigger Enabled="false" Sequential="True" Name="call out 11" Id="3a9d83a2-9922-4d56-ac1a-1ab8d0840f8a" RegularExpression="">
+            <Actions>
+              <Action OrderNumber="1" VariableOp="SetString" VariableName="${var:TopLongBLUe12sShapeFlex}" VariableExpression="Circle" ActionType="Variable">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${tvarrl:TopLongBLUe12sHeadlistDec[${tvar:TopLongBLUe12sHeadlist[1][11]}][1]}-${tvar:TopLongBLUe12sHeadlistDec[2][1]}" ExpressionTypeL="Numeric" ExpressionR="73" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="2" VariableOp="SetString" VariableName="${var:TopLongBLUe12sShapeFlex}" VariableExpression="Triangle" ActionType="Variable">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${tvarrl:TopLongBLUe12sHeadlistDec[${tvar:TopLongBLUe12sHeadlist[1][11]}][1]}-${tvar:TopLongBLUe12sHeadlistDec[2][1]}" ExpressionTypeL="Numeric" ExpressionR="74" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="3" VariableOp="SetString" VariableName="${var:TopLongBLUe12sShapeFlex}" VariableExpression="Square" ActionType="Variable">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${tvarrl:TopLongBLUe12sHeadlistDec[${tvar:TopLongBLUe12sHeadlist[1][11]}][1]}-${tvar:TopLongBLUe12sHeadlistDec[2][1]}" ExpressionTypeL="Numeric" ExpressionR="75" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="4" VariableOp="SetString" VariableName="${var:TopLongBLUe12sShapeFlex}" VariableExpression="X" ActionType="Variable">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${tvarrl:TopLongBLUe12sHeadlistDec[${tvar:TopLongBLUe12sHeadlist[1][11]}][1]}-${tvar:TopLongBLUe12sHeadlistDec[2][1]}" ExpressionTypeL="Numeric" ExpressionR="76" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="5" Enabled="False" ActionType="SystemBeep">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="6" VariableOp="SetString" VariableName="TopLongBLUe12sAuraCall" VariableExpression="swap ${tvar:TopLongBLUe12sHeadlist[1][11]} ${tvarrl:TopLongBLUe12sTetherList[${tvar:TopLongBLUe12sHeadlist[1][11]}][1]}" Enabled="False" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="7" VariableOp="SetString" VariableName="TopLongBLUe12sAuraCall1" VariableExpression="${tvar:TopLongBLUe12sHeadlist[1][11]} ${tvarrl:TopLongBLUe12sTetherList[${tvar:TopLongBLUe12sHeadlist[1][11]}][1]}" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="8" ListVariableOp="Split" ListVariableName="TopLongBLUe12sAuraCall1" ListVariableExpression=" " ListVariableTarget="TopLongBLUe12sAuraCall1" ActionType="ListVariable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="9" VariableOp="SetString" VariableName="TopLongBLUe12sAuraCall" VariableExpression="swap ${lvar:TopLongBLUe12sAuraCall1[3]} ${lvar:TopLongBLUe12sAuraCall1[1]} " Enabled="False" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="10" VariableOp="SetString" VariableName="TopLongBLUe12sAuraCall" VariableExpression="${var:TopLongBLUe12sShapeFlex} Flex ${lvar:TopLongBLUe12sAuraCall1[3]} ${lvar:TopLongBLUe12sAuraCall1[1]} " ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="11" DiscordWebhookURL="${tvar:basic[2][13]}" DiscordWebhookMessage="${var:Say}" UseTTSTextExpression="food finished ending craft ${var:ReuseFoodN} food used" TextAuraAlignment="MiddleLeft" TextAuraFontSize="27.75" TextAuraForeground="Red" TextAuraName="TopLongBLUe12sAuraCall" TextAuraExpression="${var:TopLongBLUe12sAuraCall}" TextAuraXIniExpression="676" TextAuraYIniExpression="304" TextAuraWIniExpression="500" TextAuraHIniExpression="163" TextAuraOIniExpression="100" TextAuraXTickExpression="1200" TextAuraYTickExpression="800" TextAuraWTickExpression="600" TextAuraHTickExpression="100" TextAuraOTickExpression="100" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="12" UseTTSTextExpression="${var:TopLongBLUe12sAuraCall}" ActionType="UseTTS">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="13" VariableOp="SetString" VariableName="TopLongBLUe12sAuraCall" VariableExpression="swap ${lvar:TopLongBLUe12sAuraCall1[1]} ${lvar:TopLongBLUe12sAuraCall1[3]}" TableVariableOp="Append" TableVariableName="TopLongBLUe12sAuraCall1" TableVariableTarget="LongLogP2${_timestamp}" Enabled="False" ActionType="TableVariable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="true" Grouping="And">
+              <ConditionSingle Enabled="false" ExpressionL="${tvarrl:TopLongBLUe12sTable[${tvar:TopLongBLUe12sHeadlist[1][11]}][4]}" ExpressionTypeL="Numeric" ExpressionR="${tvarrl:TopLongBLUe12sTable[${tvar:TopLongBLUe12sHeadlist[1][12]}][4]}" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+              <ConditionGroup Enabled="true" Grouping="Or">
+                <ConditionGroup Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${tvarrl:TopLongBLUe12sTable[${tvar:TopLongBLUe12sHeadlist[1][11]}][3]}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+                  <ConditionSingle Enabled="true" ExpressionL="${tvarrl:TopLongBLUe12sTable[${tvar:TopLongBLUe12sHeadlist[1][12]}][3]}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+                </ConditionGroup>
+                <ConditionGroup Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${tvarrl:TopLongBLUe12sTable[${tvar:TopLongBLUe12sHeadlist[1][11]}][3]}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                  <ConditionSingle Enabled="true" ExpressionL="${tvarrl:TopLongBLUe12sTable[${tvar:TopLongBLUe12sHeadlist[1][12]}][3]}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                </ConditionGroup>
+              </ConditionGroup>
+              <ConditionSingle Enabled="true" ExpressionL="${tvarrl:TopLongBLUe12sTable[${tvar:TopLongBLUe12sHeadlist[1][11]}][4]}" ExpressionTypeL="Numeric" ExpressionR="${tvarrl:TopLongBLUe12sTable[${tvar:TopLongBLUe12sHeadlist[1][12]}][4]}" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+            </Condition>
+          </Trigger>
+          <Trigger Enabled="false" Sequential="True" Name="call out 12 " Id="c59f4eea-6c88-49a2-b5bc-cc3993aefb7d" RegularExpression="">
+            <Actions>
+              <Action OrderNumber="1" VariableOp="SetString" VariableName="${var:TopLongBLUe12sShapeFlex}" VariableExpression="Circle" ActionType="Variable">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${tvarrl:TopLongBLUe12sHeadlistDec[${tvar:TopLongBLUe12sHeadlist[1][12]}][1]}-${tvar:TopLongBLUe12sHeadlistDec[2][1]}" ExpressionTypeL="Numeric" ExpressionR="73" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="2" VariableOp="SetString" VariableName="${var:TopLongBLUe12sShapeFlex}" VariableExpression="Triangle" ActionType="Variable">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${tvarrl:TopLongBLUe12sHeadlistDec[${tvar:TopLongBLUe12sHeadlist[1][12]}][1]}-${tvar:TopLongBLUe12sHeadlistDec[2][1]}" ExpressionTypeL="Numeric" ExpressionR="74" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="3" VariableOp="SetString" VariableName="${var:TopLongBLUe12sShapeFlex}" VariableExpression="Square" ActionType="Variable">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${tvarrl:TopLongBLUe12sHeadlistDec[${tvar:TopLongBLUe12sHeadlist[1][12]}][1]}-${tvar:TopLongBLUe12sHeadlistDec[2][1]}" ExpressionTypeL="Numeric" ExpressionR="75" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="4" VariableOp="SetString" VariableName="${var:TopLongBLUe12sShapeFlex}" VariableExpression="X" ActionType="Variable">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${tvarrl:TopLongBLUe12sHeadlistDec[${tvar:TopLongBLUe12sHeadlist[1][12]}][1]}-${tvar:TopLongBLUe12sHeadlistDec[2][1]}" ExpressionTypeL="Numeric" ExpressionR="76" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="5" VariableOp="SetString" VariableName="TopLongBLUe12sAuraCall1" VariableExpression="${tvar:TopLongBLUe12sHeadlist[1][12]} ${tvarrl:TopLongBLUe12sTetherList[${tvar:TopLongBLUe12sHeadlist[1][12]}][1]}" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="6" ListVariableOp="Split" ListVariableName="TopLongBLUe12sAuraCall1" ListVariableExpression=" " ListVariableTarget="TopLongBLUe12sAuraCall1" ActionType="ListVariable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="7" VariableOp="SetString" VariableName="TopLongBLUe12sAuraCall" VariableExpression="swap ${lvar:TopLongBLUe12sAuraCall1[3]} ${lvar:TopLongBLUe12sAuraCall1[1]} " Enabled="False" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="8" VariableOp="SetString" VariableName="TopLongBLUe12sAuraCall" VariableExpression="${var:TopLongBLUe12sShapeFlex} Flex ${lvar:TopLongBLUe12sAuraCall1[3]} ${lvar:TopLongBLUe12sAuraCall1[1]} " ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="9" VariableOp="SetString" VariableName="TopLongBLUe12sAuraCall" VariableExpression="swap ${tvarrl:TopLongBLUe12sTetherList[${tvar:TopLongBLUe12sHeadlist[1][12]}][1]} ${tvar:TopLongBLUe12sHeadlist[1][12]}" Enabled="False" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="10" DiscordWebhookURL="${tvar:basic[2][13]}" DiscordWebhookMessage="${var:Say}" UseTTSTextExpression="food finished ending craft ${var:ReuseFoodN} food used" TextAuraAlignment="MiddleLeft" TextAuraFontSize="27.75" TextAuraForeground="Red" TextAuraName="TopLongBLUe12sAuraCall" TextAuraExpression="${var:TopLongBLUe12sAuraCall}" TextAuraXIniExpression="676" TextAuraYIniExpression="304" TextAuraWIniExpression="500" TextAuraHIniExpression="163" TextAuraOIniExpression="100" TextAuraXTickExpression="1200" TextAuraYTickExpression="800" TextAuraWTickExpression="600" TextAuraHTickExpression="100" TextAuraOTickExpression="100" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="11" UseTTSTextExpression="${var:TopLongBLUe12sAuraCall}" ActionType="UseTTS">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="12" VariableOp="SetString" VariableName="TopLongBLUe12sAuraCall" VariableExpression="swap ${lvar:TopLongBLUe12sAuraCall1[1]} ${lvar:TopLongBLUe12sAuraCall1[3]}" TableVariableOp="Append" TableVariableName="TopLongBLUe12sAuraCall1" TableVariableTarget="LongLogP2${_timestamp}" Enabled="False" ActionType="TableVariable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="true" Grouping="And">
+              <ConditionSingle Enabled="true" ExpressionL="${tvarrl:TopLongBLUe12sTable[${tvar:TopLongBLUe12sHeadlist[1][11]}][4]}" ExpressionTypeL="Numeric" ExpressionR="${tvarrl:TopLongBLUe12sTable[${tvar:TopLongBLUe12sHeadlist[1][12]}][4]}" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+              <ConditionGroup Enabled="true" Grouping="Or">
+                <ConditionGroup Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${tvarrl:TopLongBLUe12sTable[${tvar:TopLongBLUe12sHeadlist[1][11]}][3]}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+                  <ConditionSingle Enabled="true" ExpressionL="${tvarrl:TopLongBLUe12sTable[${tvar:TopLongBLUe12sHeadlist[1][12]}][3]}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+                </ConditionGroup>
+                <ConditionGroup Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${tvarrl:TopLongBLUe12sTable[${tvar:TopLongBLUe12sHeadlist[1][11]}][3]}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                  <ConditionSingle Enabled="true" ExpressionL="${tvarrl:TopLongBLUe12sTable[${tvar:TopLongBLUe12sHeadlist[1][12]}][3]}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                </ConditionGroup>
+              </ConditionGroup>
+              <ConditionSingle Enabled="false" ExpressionL="${tvarrl:TopLongBLUe12sTable[${tvar:TopLongBLUe12sHeadlist[1][11]}][4]}" ExpressionTypeL="Numeric" ExpressionR="${tvarrl:TopLongBLUe12sTable[${tvar:TopLongBLUe12sHeadlist[1][12]}][4]}" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+            </Condition>
+          </Trigger>
+          <Trigger Enabled="false" Sequential="True" Name="call out no swap" Id="a518c575-7097-4b29-ac03-c0337d85421a" RegularExpression="">
+            <Actions>
+              <Action OrderNumber="1" VariableOp="SetString" VariableName="TopLongBLUe12sAuraCall1" VariableExpression="${tvar:TopLongBLUe12sHeadlist[1][12]} ${tvar:TopLongBLUe12sHeadlist[1][11]}" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" ListVariableOp="Split" ListVariableName="TopLongBLUe12sAuraCall1" ListVariableExpression=" " ListVariableTarget="TopLongBLUe12sAuraCall1" ActionType="ListVariable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="3" VariableOp="SetString" VariableName="TopLongBLUe12sAuraCall" VariableExpression="No swap ${lvar:TopLongBLUe12sAuraCall1[1]} ${lvar:TopLongBLUe12sAuraCall1[3]}" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="4" VariableOp="SetString" VariableName="TopLongBLUe12sAuraCall" VariableExpression="no swap ${tvar:TopLongBLUe12sHeadlist[1][12]} ${tvar:TopLongBLUe12sHeadlist[1][11]}" Enabled="False" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="5" DiscordWebhookURL="${tvar:basic[2][13]}" DiscordWebhookMessage="${var:Say}" UseTTSTextExpression="food finished ending craft ${var:ReuseFoodN} food used" TextAuraAlignment="MiddleLeft" TextAuraFontSize="27.75" TextAuraForeground="Red" TextAuraName="TopLongBLUe12sAuraCall" TextAuraExpression="${var:TopLongBLUe12sAuraCall}" TextAuraXIniExpression="676" TextAuraYIniExpression="304" TextAuraWIniExpression="500" TextAuraHIniExpression="163" TextAuraOIniExpression="100" TextAuraXTickExpression="1200" TextAuraYTickExpression="800" TextAuraWTickExpression="600" TextAuraHTickExpression="100" TextAuraOTickExpression="100" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="6" UseTTSTextExpression="No Flex" ActionType="UseTTS">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="7" VariableOp="SetString" VariableName="TopLongBLUe12sAuraCall" VariableExpression="swap ${lvar:TopLongBLUe12sAuraCall1[1]} ${lvar:TopLongBLUe12sAuraCall1[3]}" TableVariableOp="Append" TableVariableName="TopLongBLUe12sAuraCall1" TableVariableTarget="LongLogP2${_timestamp}" Enabled="False" ActionType="TableVariable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionGroup Enabled="true" Grouping="And">
+                <ConditionSingle Enabled="true" ExpressionL="${tvarrl:TopLongBLUe12sTable[${tvar:TopLongBLUe12sHeadlist[1][11]}][3]}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+                <ConditionSingle Enabled="true" ExpressionL="${tvarrl:TopLongBLUe12sTable[${tvar:TopLongBLUe12sHeadlist[1][12]}][3]}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+              </ConditionGroup>
+              <ConditionGroup Enabled="true" Grouping="And">
+                <ConditionSingle Enabled="true" ExpressionL="${tvarrl:TopLongBLUe12sTable[${tvar:TopLongBLUe12sHeadlist[1][11]}][3]}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                <ConditionSingle Enabled="true" ExpressionL="${tvarrl:TopLongBLUe12sTable[${tvar:TopLongBLUe12sHeadlist[1][12]}][3]}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+              </ConditionGroup>
+            </Condition>
+          </Trigger>
+          <Trigger Enabled="false" Name="test" Id="75f8f7b7-fa4d-4719-b99b-d32cd78926f5" RegularExpression="">
+            <Actions>
+              <Action OrderNumber="1" TriggerId="ffce3fa1-1e77-4e18-9e0f-c7bc19b3cca5" TriggerForce="regexp,conditions" Enabled="False" ActionType="Trigger">
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${tvar:TopLongBLUe12sHeadlist.height}" ExpressionTypeL="Numeric" ExpressionR="12" ExpressionTypeR="Numeric" ConditionType="NumericGreaterEqual" />
+                  <ConditionSingle Enabled="true" ExpressionL="TopLongBLUe12sMechanics" ExpressionTypeL="String" ExpressionR="Optical Laser" ExpressionTypeR="String" ConditionType="ListContains" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="2" UseTTSTextExpression="${ptvarrl:LongLogP21679294622[Optical Unit][2]}" TextAuraFontSize="8.25" TextAuraName="12412423" TextAuraExpression="123 ${ptvarrl:LongLogP21679294622[Optical Unit][2]}" TextAuraFontName="Microsoft Sans Serif" Enabled="False" ActionType="TextAura">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+          <Trigger Enabled="false" Source="FFXIVNetwork" Name="action2" Id="684b3440-0c52-4099-b121-73c16334b9d1" RegularExpression="">
+            <Actions>
+              <Action OrderNumber="1" KeypressType="WindowMessage" KeyPressCode="101" KeyPressWindow="FINAL FANTASY XIV" KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="100" Asynchronous="False" Description="Xeno Glossy" DescriptionOverride="True">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="TopLongBLUe12sP1Lion" ExpressionTypeL="String" ExpressionR="Xeno Glossy" ExpressionTypeR="String" ConditionType="ListDoesNotContain" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="2" KeypressType="WindowMessage" KeyPressCode="103" KeyPressWindow="FINAL FANTASY XIV" KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="100" Asynchronous="False" Description="Techne Makre" DescriptionOverride="True">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="TopLongBLUe12sP1Lion" ExpressionTypeL="String" ExpressionR="Techne Makre" ExpressionTypeR="String" ConditionType="ListDoesNotContain" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="3" KeypressType="WindowMessage" KeyPressCode="99" KeyPressWindow="FINAL FANTASY XIV" KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="100" Asynchronous="False" Description="Oni Xeatho" DescriptionOverride="True">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="TopLongBLUe12sP1Lion" ExpressionTypeL="String" ExpressionR="Oni Xeatho" ExpressionTypeR="String" ConditionType="ListDoesNotContain" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="4" KeypressType="WindowMessage" KeyPressCode="104" KeyPressWindow="FINAL FANTASY XIV" KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="100" Asynchronous="False" Description="Sunny Catgirlguy" DescriptionOverride="True">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="TopLongBLUe12sP1Lion" ExpressionTypeL="String" ExpressionR="Sunny Catgirlguy" ExpressionTypeR="String" ConditionType="ListDoesNotContain" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="5" KeypressType="WindowMessage" KeyPressCode="97" KeyPressWindow="FINAL FANTASY XIV" KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="100" Asynchronous="False" Description="Ling Epsilon" DescriptionOverride="True">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="TopLongBLUe12sP1Lion" ExpressionTypeL="String" ExpressionR="Ling Epsilon" ExpressionTypeR="String" ConditionType="ListDoesNotContain" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="6" KeypressType="WindowMessage" KeyPressCode="102" KeyPressWindow="FINAL FANTASY XIV" KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="100" Asynchronous="False" Description="Rake Ascarakka" DescriptionOverride="True">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="TopLongBLUe12sP1Lion" ExpressionTypeL="String" ExpressionR="Rake Ascarakka" ExpressionTypeR="String" ConditionType="ListDoesNotContain" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="7" KeypressType="WindowMessage" KeyPressCode="98" KeyPressWindow="FINAL FANTASY XIV" KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="100" Asynchronous="False" Description="Eun Jung Lizzy Park" DescriptionOverride="True">
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="TopLongBLUe12sP1Lion" ExpressionTypeL="String" ExpressionR="Eun Jung" ExpressionTypeR="String" ConditionType="ListDoesNotContain" />
+                  <ConditionSingle Enabled="true" ExpressionL="TopLongBLUe12sP1Lion" ExpressionTypeL="String" ExpressionR="Lizzy Park" ExpressionTypeR="String" ConditionType="ListDoesNotContain" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="8" KeypressType="WindowMessage" KeyPressCode="100" KeyPressWindow="FINAL FANTASY XIV" KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="100" Asynchronous="False" Description="Alice Lestorbo" DescriptionOverride="True">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="TopLongBLUe12sP1Lion" ExpressionTypeL="String" ExpressionR="Alice Lestorbo" ExpressionTypeR="String" ConditionType="ListDoesNotContain" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="9" ActionType="SystemBeep">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${tvar:TopLongBLUe12sP1Lion.height}" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+            </Condition>
+            <Conditions />
+          </Trigger>
+          <Trigger Enabled="true" Source="FFXIVNetwork" Name="action" Id="56f00cd6-f8d1-4de8-8f0a-cb27a635bc74" RegularExpression="">
+            <Actions>
+              <Action OrderNumber="1" KeypressType="WindowMessage" KeyPressCode="101" KeyPressWindow="FINAL FANTASY XIV" KeyPressProcId="${var:PID}" ActionType="KeyPress" ExecutionDelayExpression="100" Asynchronous="False" Description="Xeno Glossy" DescriptionOverride="True">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="TopLongBLUe12sP1Lion" ExpressionTypeL="String" ExpressionR="Xeno Glossy" ExpressionTypeR="String" ConditionType="ListDoesNotContain" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="2" KeypressType="WindowMessage" KeyPressCode="103" KeyPressWindow="FINAL FANTASY XIV" KeyPressProcId="${var:PID}" ActionType="KeyPress" ExecutionDelayExpression="100" Asynchronous="False" Description="Techne Makre" DescriptionOverride="True">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="TopLongBLUe12sP1Lion" ExpressionTypeL="String" ExpressionR="Techne Makre" ExpressionTypeR="String" ConditionType="ListDoesNotContain" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="3" KeypressType="WindowMessage" KeyPressCode="99" KeyPressWindow="FINAL FANTASY XIV" KeyPressProcId="${var:PID}" ActionType="KeyPress" ExecutionDelayExpression="100" Asynchronous="False" Description="Oni Xeatho" DescriptionOverride="True">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="TopLongBLUe12sP1Lion" ExpressionTypeL="String" ExpressionR="Oni Xeatho" ExpressionTypeR="String" ConditionType="ListDoesNotContain" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="4" KeypressType="WindowMessage" KeyPressCode="104" KeyPressWindow="FINAL FANTASY XIV" KeyPressProcId="${var:PID}" ActionType="KeyPress" ExecutionDelayExpression="100" Asynchronous="False" Description="Sunny Catgirlguy" DescriptionOverride="True">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="TopLongBLUe12sP1Lion" ExpressionTypeL="String" ExpressionR="Sunny Catgirlguy" ExpressionTypeR="String" ConditionType="ListDoesNotContain" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="5" KeypressType="WindowMessage" KeyPressCode="97" KeyPressWindow="FINAL FANTASY XIV" KeyPressProcId="${var:PID}" ActionType="KeyPress" ExecutionDelayExpression="100" Asynchronous="False" Description="Ling Epsilon" DescriptionOverride="True">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="TopLongBLUe12sP1Lion" ExpressionTypeL="String" ExpressionR="Ling Epsilon" ExpressionTypeR="String" ConditionType="ListDoesNotContain" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="6" KeypressType="WindowMessage" KeyPressCode="102" KeyPressWindow="FINAL FANTASY XIV" KeyPressProcId="${var:PID}" ActionType="KeyPress" ExecutionDelayExpression="100" Asynchronous="False" Description="Rake Ascarakka" DescriptionOverride="True">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="TopLongBLUe12sP1Lion" ExpressionTypeL="String" ExpressionR="Rake Ascarakka" ExpressionTypeR="String" ConditionType="ListDoesNotContain" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="7" KeypressType="WindowMessage" KeyPressCode="98" KeyPressWindow="FINAL FANTASY XIV" KeyPressProcId="${var:PID}" ActionType="KeyPress" ExecutionDelayExpression="100" Asynchronous="False" Description="Eun Jung Lizzy Park" DescriptionOverride="True">
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="TopLongBLUe12sP1Lion" ExpressionTypeL="String" ExpressionR="Eun Jung" ExpressionTypeR="String" ConditionType="ListDoesNotContain" />
+                  <ConditionSingle Enabled="true" ExpressionL="TopLongBLUe12sP1Lion" ExpressionTypeL="String" ExpressionR="Lizzy Park" ExpressionTypeR="String" ConditionType="ListDoesNotContain" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="8" KeypressType="WindowMessage" KeyPressCode="100" KeyPressWindow="FINAL FANTASY XIV" KeyPressProcId="${var:PID}" ActionType="KeyPress" ExecutionDelayExpression="100" Asynchronous="False" Description="Alice Lestorbo" DescriptionOverride="True">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="TopLongBLUe12sP1Lion" ExpressionTypeL="String" ExpressionR="Alice Lestorbo" ExpressionTypeR="String" ConditionType="ListDoesNotContain" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="9" ActionType="SystemBeep">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${tvar:TopLongBLUe12sP1Lion.height}" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+            </Condition>
+            <Conditions />
+          </Trigger>
+        </Triggers>
+      </Folder>
+    </Folders>
+    <Triggers />
+  </ExportedFolder>
+</TriggernometryExport>
