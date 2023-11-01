@@ -22,13 +22,13 @@
               <Action OrderNumber="2" UseTTSTextExpression="Duty registration complete." ActionType="UseTTS">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="3" ActionType="SystemBeep" ExecutionDelayExpression="10000">
+              <Action OrderNumber="3" SystemBeepLengthExpression="0" ActionType="SystemBeep" ExecutionDelayExpression="13000">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
               <Action OrderNumber="4" KeypressType="WindowMessage" KeyPressCode="${var:DpadDownKey}" KeyPressWindow="FINAL FANTASY XIV" KeyPressProcId="${var:PID}" Enabled="False" ActionType="KeyPress" ExecutionDelayExpression="750">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="5" KeypressType="WindowMessage" KeyPressCode="${var:DpadLeftKey}" KeyPressWindow="FINAL FANTASY XIV" KeyPressProcId="${var:PID}" ActionType="KeyPress" ExecutionDelayExpression="3000">
+              <Action OrderNumber="5" KeypressType="WindowMessage" KeyPressCode="${var:DpadLeftKey}" KeyPressWindow="FINAL FANTASY XIV" KeyPressProcId="${var:PID}" ActionType="KeyPress">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
               <Action OrderNumber="6" KeypressType="WindowMessage" KeyPressCode="${var:ConfirmKeyX}" KeyPressWindow="FINAL FANTASY XIV" KeyPressProcId="${var:PID}" ActionType="KeyPress" ExecutionDelayExpression="250">
@@ -135,7 +135,7 @@
           </Trigger>
           <Trigger Enabled="true" Name="0 setting" Id="a7003f03-6f16-4a3c-9c0d-0cf78ecebc6a" RegularExpression="">
             <Actions>
-              <Action OrderNumber="1" DiskFileOp="ReadCSVIntoTableVariable" DiskFileOpName="C:\Users\NAMEEEEEE\AppData\Roaming\Advanced Combat Tracker\Config\FF14craftriga - basic.csv" DiskFileOpVar="basic" ListVariableOp="Set" Enabled="False" ActionType="DiskFile">
+              <Action OrderNumber="1" DiskFileOp="ReadCSVIntoTableVariable" DiskFileOpVar="basic" ListVariableOp="Set" Enabled="False" ActionType="DiskFile">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
               <Action OrderNumber="2" VariableOp="SetString" VariableName="ConfirmKeyX" VariableExpression="${tvarrl:basic[ConfirmKeyX][2]}" ActionType="Variable" ExecutionDelayExpression="200">
@@ -255,7 +255,7 @@
             <Condition Enabled="false" Grouping="Or" />
             <Conditions />
           </Trigger>
-          <Trigger Enabled="true" Name="You obtain .* MGF" Id="40246683-421f-4bbb-81fb-696dfc27bfdb" RegularExpression="You obtain .* MGF" PrevActions="Interrupt">
+          <Trigger Enabled="true" Name="You obtain .* MGF" Id="32800684-4a08-4c16-a763-7e680c8814c5" RegularExpression="You obtain (?&lt;MGF&gt;.*) MGF" PrevActions="Interrupt">
             <Actions>
               <Action OrderNumber="1" DiscordWebhookURL="${var:discordwebhook}" DiscordWebhookMessage="&lt;@${var:discordID}&gt; ```${_event}``` " UseTTSTextExpression="food finished ending craft ${var:ReuseFoodN} food used" Enabled="False" ActionType="DiscordWebhook">
                 <Condition Enabled="false" Grouping="Or">
@@ -269,16 +269,19 @@
                   </ConditionGroup>
                 </Condition>
               </Action>
-              <Action OrderNumber="2" UseTTSTextExpression="${_triggername}" ActionType="UseTTS">
+              <Action OrderNumber="2" VariableOp="SetNumeric" VariableName="MGF" VariableExpression="${var:MGF}+${MGF}" ActionType="Variable">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="3" TriggerId="c3e370f9-27a8-408b-bd59-c70813d74663" TriggerForce="regexp" ActionType="Trigger" ExecutionDelayExpression="1800000">
+              <Action OrderNumber="3" UseTTSTextExpression="You obtained ${var:MGF} MGF." ActionType="UseTTS">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="4" UseTTSTextExpression="30 mins passed and no progress happened" ActionType="UseTTS">
+              <Action OrderNumber="4" TriggerId="7a0e12ed-64cc-48e5-b72f-8f99794aa3d7" TriggerForce="regexp" ActionType="Trigger" ExecutionDelayExpression="1800000">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="5" DiscordWebhookURL="${var:discordwebhook}" DiscordWebhookMessage="&lt;@${var:discordID}&gt; ```30 mins passed and no progress happened``` " UseTTSTextExpression="food finished ending craft ${var:ReuseFoodN} food used" ActionType="DiscordWebhook">
+              <Action OrderNumber="5" UseTTSTextExpression="30 mins passed and no progress happened" ActionType="UseTTS">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="6" DiscordWebhookURL="${var:discordwebhook}" DiscordWebhookMessage="&lt;@${var:discordID}&gt; ```30 mins passed and no progress happened. MGF total ${var:MGF}``` " UseTTSTextExpression="food finished ending craft ${var:ReuseFoodN} food used" ActionType="DiscordWebhook">
                 <Condition Enabled="false" Grouping="Or">
                   <ConditionSingle Enabled="true" ExpressionL="${var:CheckN}" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
                   <ConditionSingle Enabled="true" ExpressionL="${var:IdleN}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
