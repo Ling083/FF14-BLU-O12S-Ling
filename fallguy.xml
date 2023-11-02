@@ -25,10 +25,10 @@
               <Action OrderNumber="3" SystemBeepLengthExpression="0" ActionType="SystemBeep" ExecutionDelayExpression="13000">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="4" KeypressType="WindowMessage" KeyPressCode="${var:DpadDownKey}" KeyPressWindow="FINAL FANTASY XIV" KeyPressProcId="${var:PID}" Enabled="False" ActionType="KeyPress" ExecutionDelayExpression="750">
+              <Action OrderNumber="4" KeypressType="WindowMessage" KeyPressCode="${var:DpadDownKey}" KeyPressWindow="FINAL FANTASY XIV" KeyPressProcId="${var:PID}" ActionType="KeyPress" ExecutionDelayExpression="750">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="5" KeypressType="WindowMessage" KeyPressCode="${var:DpadLeftKey}" KeyPressWindow="FINAL FANTASY XIV" KeyPressProcId="${var:PID}" ActionType="KeyPress">
+              <Action OrderNumber="5" KeypressType="WindowMessage" KeyPressCode="${var:DpadLeftKey}" KeyPressWindow="FINAL FANTASY XIV" KeyPressProcId="${var:PID}" ActionType="KeyPress" ExecutionDelayExpression="570">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
               <Action OrderNumber="6" KeypressType="WindowMessage" KeyPressCode="${var:ConfirmKeyX}" KeyPressWindow="FINAL FANTASY XIV" KeyPressProcId="${var:PID}" ActionType="KeyPress" ExecutionDelayExpression="250">
@@ -132,40 +132,37 @@
           </Trigger>
           <Trigger Enabled="true" Name="0 setting" Id="a7003f03-6f16-4a3c-9c0d-0cf78ecebc6a" RegularExpression="">
             <Actions>
-              <Action OrderNumber="1" DiskFileOp="ReadCSVIntoTableVariable" DiskFileOpVar="basic" ListVariableOp="Set" Enabled="False" ActionType="DiskFile">
+              <Action OrderNumber="1" VariableOp="SetString" VariableName="ConfirmKeyX" VariableExpression="99" ActionType="Variable" ExecutionDelayExpression="200">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="2" VariableOp="SetString" VariableName="ConfirmKeyX" VariableExpression="97" ActionType="Variable" ExecutionDelayExpression="200">
+              <Action OrderNumber="2" VariableOp="SetString" VariableName="CancelKeyO" VariableExpression="98" ActionType="Variable">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="3" VariableOp="SetString" VariableName="CancelKeyO" VariableExpression="98" ActionType="Variable">
+              <Action OrderNumber="3" VariableOp="SetString" VariableName="SelectClosest" VariableExpression="123" ActionType="Variable">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="4" VariableOp="SetString" VariableName="SelectClosest" VariableExpression="99" ActionType="Variable">
+              <Action OrderNumber="4" VariableOp="SetString" VariableName="DpadLeftKey" VariableExpression="37" ActionType="Variable">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="5" VariableOp="SetString" VariableName="DpadLeftKey" VariableExpression="37" ActionType="Variable">
+              <Action OrderNumber="5" VariableOp="SetString" VariableName="DpadDownKey" VariableExpression="40" ActionType="Variable">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="6" VariableOp="SetString" VariableName="DpadDownKey" VariableExpression="40" ActionType="Variable">
+              <Action OrderNumber="6" VariableOp="SetString" VariableName="discordwebhook" VariableExpression="${tvarrl:basic[webhook][1]}" Enabled="False" ActionType="Variable">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="7" VariableOp="SetString" VariableName="discordwebhook" VariableExpression="${tvarrl:basic[webhook][1]}" Enabled="False" ActionType="Variable">
+              <Action OrderNumber="7" VariableOp="SetString" VariableName="discordID" VariableExpression="${tvarrl:basic[DiscordID][1]}" Enabled="False" ActionType="Variable">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="8" VariableOp="SetString" VariableName="discordID" VariableExpression="${tvarrl:basic[DiscordID][1]}" Enabled="False" ActionType="Variable">
+              <Action OrderNumber="8" VariableOp="SetString" VariableName="discordwebhook" Enabled="False" ActionType="Variable">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="9" VariableOp="SetString" VariableName="discordwebhook" Enabled="False" ActionType="Variable">
+              <Action OrderNumber="9" VariableOp="SetString" VariableName="discordID" Enabled="False" ActionType="Variable">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="10" VariableOp="SetString" VariableName="discordID" Enabled="False" ActionType="Variable">
+              <Action OrderNumber="10" VariableOp="SetString" VariableName="PID" VariableExpression="${_ffxivprocid}" ActionType="Variable">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="11" VariableOp="SetString" VariableName="PID" VariableExpression="${_ffxivprocid}" ActionType="Variable">
-                <Condition Enabled="false" Grouping="Or" />
-              </Action>
-              <Action OrderNumber="12" UseTTSTextExpression="https://learn.microsoft.com/en-us/dotnet/api/system.windows.forms.keys?view=windowsdesktop-7.0" Enabled="False" ActionType="UseTTS">
+              <Action OrderNumber="11" UseTTSTextExpression="https://learn.microsoft.com/en-us/dotnet/api/system.windows.forms.keys?view=windowsdesktop-7.0" Enabled="False" ActionType="UseTTS">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
             </Actions>
