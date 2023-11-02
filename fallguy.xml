@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <TriggernometryExport Version="1">
-  <ExportedFolder FfxivZoneFilterRegularExpression="^1165$" Id="2d1410d4-c0d3-4cd8-ba6e-5ccfcdfeea82" Name="Fall Guys (outside)" Enabled="false">
+  <ExportedFolder FfxivZoneFilterRegularExpression="^1165$" Id="2d1410d4-c0d3-4cd8-ba6e-5ccfcdfeea82" Name="Fall Guys (outside)" Enabled="true">
     <Folders>
       <Folder FFXIVZoneFilterEnabled="True" FfxivZoneFilterRegularExpression="^1197$" Id="b5ed4b7c-c904-4d17-9138-3379bc9ff616" Name="location main hall 1997" Enabled="true">
         <Folders />
@@ -28,16 +28,16 @@
               <Action OrderNumber="4" KeypressType="WindowMessage" KeyPressCode="${var:DpadDownKey}" KeyPressWindow="FINAL FANTASY XIV" KeyPressProcId="${var:PID}" ActionType="KeyPress" ExecutionDelayExpression="750">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="5" KeypressType="WindowMessage" KeyPressCode="${var:DpadLeftKey}" KeyPressWindow="FINAL FANTASY XIV" KeyPressProcId="${var:PID}" ActionType="KeyPress" ExecutionDelayExpression="570">
+              <Action OrderNumber="5" KeypressType="WindowMessage" KeyPressCode="${var:DpadLeftKey}" KeyPressWindow="FINAL FANTASY XIV" KeyPressProcId="${var:PID}" ActionType="KeyPress" ExecutionDelayExpression="500">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
               <Action OrderNumber="6" KeypressType="WindowMessage" KeyPressCode="${var:ConfirmKeyX}" KeyPressWindow="FINAL FANTASY XIV" KeyPressProcId="${var:PID}" ActionType="KeyPress" ExecutionDelayExpression="250">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="7" KeypressType="WindowMessage" KeyPressCode="${var:DpadLeftKey}" KeyPressWindow="FINAL FANTASY XIV" KeyPressProcId="${var:PID}" ActionType="KeyPress" ExecutionDelayExpression="3000">
+              <Action OrderNumber="7" KeypressType="WindowMessage" KeyPressCode="${var:DpadLeftKey}" KeyPressWindow="FINAL FANTASY XIV" KeyPressProcId="${var:PID}" Enabled="False" ActionType="KeyPress" ExecutionDelayExpression="3000">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="8" KeypressType="WindowMessage" KeyPressCode="${var:ConfirmKeyX}" KeyPressWindow="FINAL FANTASY XIV" KeyPressProcId="${var:PID}" ActionType="KeyPress" ExecutionDelayExpression="250">
+              <Action OrderNumber="8" KeypressType="WindowMessage" KeyPressCode="${var:ConfirmKeyX}" KeyPressWindow="FINAL FANTASY XIV" KeyPressProcId="${var:PID}" Enabled="False" ActionType="KeyPress" ExecutionDelayExpression="250">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
               <Action OrderNumber="9" KeypressType="WindowMessage" KeyPressCode="${var:DpadLeftKey}" KeyPressWindow="FINAL FANTASY XIV" KeyPressProcId="${var:PID}" Enabled="False" ActionType="KeyPress" ExecutionDelayExpression="3000">
