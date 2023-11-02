@@ -48,7 +48,6 @@
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
-            <Conditions />
           </Trigger>
           <Trigger Enabled="true" Name="[06:49:11.000] ChatLog 00:0039::You have entered a sanctuary." Id="01f47db8-c421-4430-baba-a54db3492d14" RegularExpression="You have entered a sanctuary">
             <Actions>
@@ -92,7 +91,6 @@
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
-            <Conditions />
           </Trigger>
           <Trigger Enabled="false" Name="DUTY pop (dunno the regex)" Id="493ad523-77cc-4450-a086-f7266d1eaf78" RegularExpression="">
             <Actions>
@@ -131,32 +129,31 @@
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
-            <Conditions />
           </Trigger>
           <Trigger Enabled="true" Name="0 setting" Id="a7003f03-6f16-4a3c-9c0d-0cf78ecebc6a" RegularExpression="">
             <Actions>
               <Action OrderNumber="1" DiskFileOp="ReadCSVIntoTableVariable" DiskFileOpVar="basic" ListVariableOp="Set" Enabled="False" ActionType="DiskFile">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="2" VariableOp="SetString" VariableName="ConfirmKeyX" VariableExpression="${tvarrl:basic[ConfirmKeyX][2]}" ActionType="Variable" ExecutionDelayExpression="200">
+              <Action OrderNumber="2" VariableOp="SetString" VariableName="ConfirmKeyX" VariableExpression="97" ActionType="Variable" ExecutionDelayExpression="200">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="3" VariableOp="SetString" VariableName="DpadLeftKey" VariableExpression="${tvarrl:basic[DpadLeftKey][2]}" ActionType="Variable">
+              <Action OrderNumber="3" VariableOp="SetString" VariableName="CancelKeyO" VariableExpression="98" ActionType="Variable">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="4" VariableOp="SetString" VariableName="CancelKeyO" VariableExpression="${tvarrl:basic[CancelKeyO][2]}" ActionType="Variable">
+              <Action OrderNumber="4" VariableOp="SetString" VariableName="SelectClosest" VariableExpression="99" ActionType="Variable">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="5" VariableOp="SetString" VariableName="DpadDownKey" VariableExpression="${tvarrl:basic[DpadDownKey][2]}" ActionType="Variable">
+              <Action OrderNumber="5" VariableOp="SetString" VariableName="DpadLeftKey" VariableExpression="37" ActionType="Variable">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="6" VariableOp="SetString" VariableName="SelectClosest" VariableExpression="${tvarrl:basic[SelectClosest][2]}" ActionType="Variable">
+              <Action OrderNumber="6" VariableOp="SetString" VariableName="DpadDownKey" VariableExpression="40" ActionType="Variable">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="7" VariableOp="SetString" VariableName="discordwebhook" VariableExpression="${tvarrl:basic[webhook][1]}" ActionType="Variable">
+              <Action OrderNumber="7" VariableOp="SetString" VariableName="discordwebhook" VariableExpression="${tvarrl:basic[webhook][1]}" Enabled="False" ActionType="Variable">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="8" VariableOp="SetString" VariableName="discordID" VariableExpression="${tvarrl:basic[DiscordID][1]}" ActionType="Variable">
+              <Action OrderNumber="8" VariableOp="SetString" VariableName="discordID" VariableExpression="${tvarrl:basic[DiscordID][1]}" Enabled="False" ActionType="Variable">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
               <Action OrderNumber="9" VariableOp="SetString" VariableName="discordwebhook" Enabled="False" ActionType="Variable">
@@ -168,9 +165,11 @@
               <Action OrderNumber="11" VariableOp="SetString" VariableName="PID" VariableExpression="${_ffxivprocid}" ActionType="Variable">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
+              <Action OrderNumber="12" UseTTSTextExpression="https://learn.microsoft.com/en-us/dotnet/api/system.windows.forms.keys?view=windowsdesktop-7.0" Enabled="False" ActionType="UseTTS">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
-            <Conditions />
           </Trigger>
           <Trigger Enabled="true" Name="Participation could not be confirmed. Your registration is withdrawn." Id="d9075c25-f8cb-4a22-99b0-1b5a02a41a5c" RegularExpression="Participation could not be confirmed. Your registration is withdrawn.">
             <Actions>
@@ -191,7 +190,6 @@
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
-            <Conditions />
           </Trigger>
         </Triggers>
       </Folder>
@@ -253,7 +251,6 @@
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
-            <Conditions />
           </Trigger>
           <Trigger Enabled="true" Name="You obtain .* MGF" Id="32800684-4a08-4c16-a763-7e680c8814c5" RegularExpression="You obtain (?&lt;MGF&gt;.*) MGF" PrevActions="Interrupt">
             <Actions>
@@ -272,13 +269,13 @@
               <Action OrderNumber="2" VariableOp="SetNumeric" VariableName="MGF" VariableExpression="${var:MGF}+${MGF}" ActionType="Variable">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="3" UseTTSTextExpression="You obtained ${var:MGF} MGF." ActionType="UseTTS">
+              <Action OrderNumber="3" UseTTSTextExpression="You obtained ${var:MGF} MGF." ActionType="UseTTS" ExecutionDelayExpression="500">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
               <Action OrderNumber="4" TriggerId="7a0e12ed-64cc-48e5-b72f-8f99794aa3d7" TriggerForce="regexp" ActionType="Trigger" ExecutionDelayExpression="1800000">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="5" UseTTSTextExpression="30 mins passed and no progress happened" ActionType="UseTTS">
+              <Action OrderNumber="5" UseTTSTextExpression="30 mins passed and no progress happened. MGF total ${var:MGF}" ActionType="UseTTS">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
               <Action OrderNumber="6" DiscordWebhookURL="${var:discordwebhook}" DiscordWebhookMessage="&lt;@${var:discordID}&gt; ```30 mins passed and no progress happened. MGF total ${var:MGF}``` " UseTTSTextExpression="food finished ending craft ${var:ReuseFoodN} food used" ActionType="DiscordWebhook">
@@ -295,117 +292,30 @@
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
-            <Conditions />
           </Trigger>
         </Triggers>
       </Folder>
-      <Folder Id="b9dc2141-6c2e-49ad-8d6c-3e7104e76ebe" Name="keybinds" Enabled="false">
-        <Folders>
-          <Folder Id="ac03aac0-b8a2-4691-b811-929ad074a2d9" Name="var" Enabled="false">
-            <Folders />
-            <Triggers>
-              <Trigger Enabled="false" Name="SquareKey" Id="c45622a0-0bda-49dc-a949-9d549dbdcf32" RegularExpression="">
-                <Actions>
-                  <Action OrderNumber="1" KeypressType="WindowMessage" KeyPressCode="${var:SquareKey}" KeyPressWindow="FINAL FANTASY XIV" KeyPressProcId="${var:PID}" ActionType="KeyPress">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                </Actions>
-                <Condition Enabled="false" Grouping="Or" />
-                <Conditions />
-              </Trigger>
-              <Trigger Enabled="false" Name="0 Example send key var" Id="f481eefb-2637-4888-aec6-b99c7e4923e1" RegularExpression="">
-                <Actions>
-                  <Action OrderNumber="1" KeypressType="WindowMessage" KeyPressCode="${var:${_triggername}}" KeyPressWindow="FINAL FANTASY XIV" KeyPressProcId="${var:PID}" ActionType="KeyPress">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                </Actions>
-                <Condition Enabled="false" Grouping="Or" />
-                <Conditions />
-              </Trigger>
-              <Trigger Enabled="false" Name="ConfirmKeyX" Id="b9b6a91b-65c7-4226-bcc7-cc13baae9c21" RegularExpression="">
-                <Actions>
-                  <Action OrderNumber="1" KeypressType="WindowMessage" KeyPressCode="${var:ConfirmKeyX}" KeyPressWindow="FINAL FANTASY XIV" KeyPressProcId="${var:PID}" ActionType="KeyPress">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="2" UseTTSTextExpression="${var:ConfirmKeyX}" Enabled="False" ActionType="UseTTS">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                </Actions>
-                <Condition Enabled="false" Grouping="Or" />
-                <Conditions />
-              </Trigger>
-              <Trigger Enabled="false" Name="CancelKeyO" Id="12e72828-8ba8-47d7-beeb-e293cc689a40" RegularExpression="">
-                <Actions>
-                  <Action OrderNumber="1" KeypressType="WindowMessage" KeyPressCode="${var:CancelKeyO}" KeyPressWindow="FINAL FANTASY XIV" KeyPressProcId="${var:PID}" ActionType="KeyPress">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                </Actions>
-                <Condition Enabled="false" Grouping="Or" />
-                <Conditions />
-              </Trigger>
-              <Trigger Enabled="false" Name="DpadLeftKey" Id="ad805325-093a-4815-8040-4c99e3b1ac26" RegularExpression="">
-                <Actions>
-                  <Action OrderNumber="1" KeypressType="WindowMessage" KeyPressCode="${var:DpadLeftKey}" KeyPressWindow="FINAL FANTASY XIV" KeyPressProcId="${var:PID}" ActionType="KeyPress">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                </Actions>
-                <Condition Enabled="false" Grouping="Or" />
-                <Conditions />
-              </Trigger>
-              <Trigger Enabled="false" Name="SelectClosest" Id="352af73f-6962-4b26-890b-23dfdbeaacba" RegularExpression="">
-                <Actions>
-                  <Action OrderNumber="1" KeypressType="WindowMessage" KeyPressCode="${var:SelectClosest}" KeyPressWindow="FINAL FANTASY XIV" KeyPressProcId="${var:PID}" ActionType="KeyPress">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                </Actions>
-                <Condition Enabled="false" Grouping="Or" />
-                <Conditions />
-              </Trigger>
-              <Trigger Enabled="false" Name="DpadDownKey" Id="b325bfe5-5195-494f-b096-f26e7271084c" RegularExpression="">
-                <Actions>
-                  <Action OrderNumber="1" KeypressType="WindowMessage" KeyPressCode="${var:DpadDownKey}" KeyPressWindow="FINAL FANTASY XIV" KeyPressProcId="${var:PID}" ActionType="KeyPress">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                </Actions>
-                <Condition Enabled="false" Grouping="Or" />
-                <Conditions />
-              </Trigger>
-              <Trigger Enabled="false" Name="DpadRightKey" Id="22febbe5-9deb-4981-87a6-e036b8e16655" RegularExpression="">
-                <Actions>
-                  <Action OrderNumber="1" KeypressType="WindowMessage" KeyPressCode="${var:DpadRightKey}" KeyPressWindow="FINAL FANTASY XIV" KeyPressProcId="${var:PID}" ActionType="KeyPress">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                </Actions>
-                <Condition Enabled="false" Grouping="Or" />
-                <Conditions />
-              </Trigger>
-            </Triggers>
-          </Folder>
-        </Folders>
-        <Triggers />
-      </Folder>
     </Folders>
     <Triggers>
-      <Trigger Enabled="true" Name="7 Shutdown" Id="c3e370f9-27a8-408b-bd59-c70813d74663" RegularExpression="">
+      <Trigger Enabled="true" Name="[GM]" Id="1a6467f7-6d3f-4a81-b40d-48de2b5780c6" RegularExpression="\[GM\]">
         <Actions>
-          <Action OrderNumber="1" KeypressType="WindowMessage" KeyPressCode="83" KeyPressWindow="Command Prompt" LaunchProcessPathExpression="C:\Windows\System32\shutdown.exe" LaunchProcessCmdlineExpression="/s" ActionType="LaunchProcess">
-            <Condition Enabled="false" Grouping="Or" />
+          <Action OrderNumber="1" DiscordWebhookURL="${var:discordwebhook}" DiscordWebhookMessage="&lt;@${var:discordID}&gt; ```${_event}``` " UseTTSTextExpression="food finished ending craft ${var:ReuseFoodN} food used" Enabled="False" ActionType="DiscordWebhook">
+            <Condition Enabled="false" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${var:CheckN}" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+              <ConditionSingle Enabled="true" ExpressionL="${var:IdleN}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+              <ConditionSingle Enabled="true" ExpressionL="${var:CheckK}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+              <ConditionSingle Enabled="true" ExpressionL="${var:CheckK}" ExpressionTypeL="Numeric" ExpressionR="6000" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+              <ConditionGroup Enabled="true" Grouping="And">
+                <ConditionSingle Enabled="true" ExpressionL="${var:CheckK}" ExpressionTypeL="Numeric" ExpressionR="63" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+                <ConditionSingle Enabled="true" ExpressionL="${var:CheckK}" ExpressionTypeL="Numeric" ExpressionR="256" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+              </ConditionGroup>
+            </Condition>
           </Action>
-          <Action OrderNumber="2" DiscordWebhookURL="${tvar:basic[2][18]}" DiscordWebhookMessage="Shutdown" DiscordTts="True" ActionType="DiscordWebhook">
-            <Condition Enabled="false" Grouping="Or" />
-          </Action>
-          <Action OrderNumber="3" TriggerOp="CancelAllTrigger" Enabled="False" ActionType="Trigger">
+          <Action OrderNumber="2" FolderOp="DisableFolder" FolderId="2d1410d4-c0d3-4cd8-ba6e-5ccfcdfeea82" ActionType="Folder" ExecutionDelayExpression="5000">
             <Condition Enabled="false" Grouping="Or" />
           </Action>
         </Actions>
-        <Condition Enabled="false" Grouping="And">
-          <ConditionSingle Enabled="false" ExpressionL="${var:ShutDown}" ExpressionTypeL="String" ExpressionR="Yes" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-          <ConditionGroup Enabled="false" Grouping="Not">
-            <ConditionSingle Enabled="true" ExpressionL="${var:LeveS}" ExpressionTypeL="String" ExpressionR="LeveNA" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-            <ConditionSingle Enabled="true" ExpressionL="${var:LeveS}" ExpressionTypeL="String" ExpressionR="LeveJP" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-            <ConditionSingle Enabled="true" ExpressionL="${var:LeveS}" ExpressionTypeL="String" ExpressionR="Leve" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-          </ConditionGroup>
-        </Condition>
+        <Condition Enabled="false" Grouping="Or" />
         <Conditions />
       </Trigger>
     </Triggers>
