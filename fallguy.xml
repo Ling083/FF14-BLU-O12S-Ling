@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <TriggernometryExport Version="1">
-  <ExportedFolder FfxivZoneFilterRegularExpression="^1165$" Id="2d1410d4-c0d3-4cd8-ba6e-5ccfcdfeea82" Name="Fall Guys (outside)" Enabled="true">
+  <ExportedFolder FfxivZoneFilterRegularExpression="^1165$" Id="2d1410d4-c0d3-4cd8-ba6e-5ccfcdfeea82" Name="Fall Guys (outside)" Enabled="false">
     <Folders>
       <Folder FFXIVZoneFilterEnabled="True" FfxivZoneFilterRegularExpression="^1197$" Id="b5ed4b7c-c904-4d17-9138-3379bc9ff616" Name="location main hall 1997" Enabled="true">
         <Folders />
@@ -188,6 +188,37 @@
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
           </Trigger>
+          <Trigger Enabled="true" Name="[GM]" Id="ba0235ba-fde6-4641-a7f6-278f08787cef" RegularExpression="\[GM\]">
+            <Actions>
+              <Action OrderNumber="1" DiscordWebhookURL="${var:discordwebhook}" DiscordWebhookMessage="&lt;@${var:discordID}&gt; ```${_event}``` " UseTTSTextExpression="food finished ending craft ${var:ReuseFoodN} food used" Enabled="False" ActionType="DiscordWebhook">
+                <Condition Enabled="false" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:CheckN}" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+                  <ConditionSingle Enabled="true" ExpressionL="${var:IdleN}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+                  <ConditionSingle Enabled="true" ExpressionL="${var:CheckK}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  <ConditionSingle Enabled="true" ExpressionL="${var:CheckK}" ExpressionTypeL="Numeric" ExpressionR="6000" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+                  <ConditionGroup Enabled="true" Grouping="And">
+                    <ConditionSingle Enabled="true" ExpressionL="${var:CheckK}" ExpressionTypeL="Numeric" ExpressionR="63" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+                    <ConditionSingle Enabled="true" ExpressionL="${var:CheckK}" ExpressionTypeL="Numeric" ExpressionR="256" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                  </ConditionGroup>
+                </Condition>
+              </Action>
+              <Action OrderNumber="2" FolderOp="DisableFolder" FolderId="2d1410d4-c0d3-4cd8-ba6e-5ccfcdfeea82" ActionType="Folder" ExecutionDelayExpression="5000">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+          <Trigger Enabled="true" Name="You cannot carry more MGF" Id="81e90d64-f7f9-4a6e-b53c-2594474e2c96" RegularExpression="You cannot carry more MGF">
+            <Actions>
+              <Action OrderNumber="1" DiscordWebhookURL="${var:discordwebhook}" DiscordWebhookMessage="&lt;@${var:discordID}&gt; ```${_event}``` " UseTTSTextExpression="food finished ending craft ${var:ReuseFoodN} food used" ActionType="DiscordWebhook">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" UseTTSTextExpression="${_event}" ActionType="UseTTS">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
         </Triggers>
       </Folder>
       <Folder FFXIVZoneFilterEnabled="True" FfxivZoneFilterRegularExpression="^1165$" Id="297037e5-0bde-4171-b52f-704a6649301b" Name="stage 1165" Enabled="true">
@@ -266,16 +297,19 @@
               <Action OrderNumber="2" VariableOp="SetNumeric" VariableName="MGF" VariableExpression="${var:MGF}+${MGF}" ActionType="Variable">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="3" UseTTSTextExpression="You obtained ${var:MGF} MGF." ActionType="UseTTS" ExecutionDelayExpression="500">
+              <Action OrderNumber="3" TriggerId="a7c9433e-6169-4c97-9bb3-0549a06c07a1" TriggerForce="regexp" ActionType="Trigger">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="4" TriggerId="7a0e12ed-64cc-48e5-b72f-8f99794aa3d7" TriggerForce="regexp" ActionType="Trigger" ExecutionDelayExpression="1800000">
+              <Action OrderNumber="4" UseTTSTextExpression="You obtained ${var:MGF} MGF." ActionType="UseTTS" ExecutionDelayExpression="500">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="5" UseTTSTextExpression="30 mins passed and no progress happened. MGF total ${var:MGF}" ActionType="UseTTS">
+              <Action OrderNumber="5" TriggerId="7a0e12ed-64cc-48e5-b72f-8f99794aa3d7" TriggerForce="regexp" ActionType="Trigger" ExecutionDelayExpression="1800000">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="6" DiscordWebhookURL="${var:discordwebhook}" DiscordWebhookMessage="&lt;@${var:discordID}&gt; ```30 mins passed and no progress happened. MGF total ${var:MGF}``` " UseTTSTextExpression="food finished ending craft ${var:ReuseFoodN} food used" ActionType="DiscordWebhook">
+              <Action OrderNumber="6" UseTTSTextExpression="30 mins passed and no progress happened. MGF total ${var:MGF}" ActionType="UseTTS">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="7" DiscordWebhookURL="${var:discordwebhook}" DiscordWebhookMessage="&lt;@${var:discordID}&gt; ```30 mins passed and no progress happened. MGF total ${var:MGF}``` " UseTTSTextExpression="food finished ending craft ${var:ReuseFoodN} food used" ActionType="DiscordWebhook">
                 <Condition Enabled="false" Grouping="Or">
                   <ConditionSingle Enabled="true" ExpressionL="${var:CheckN}" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
                   <ConditionSingle Enabled="true" ExpressionL="${var:IdleN}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
@@ -290,31 +324,63 @@
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
           </Trigger>
+          <Trigger Enabled="true" Name="[GM]" Id="9b5386bc-3d3c-49a4-baa7-7041761d1488" RegularExpression="\[GM\]">
+            <Actions>
+              <Action OrderNumber="1" DiscordWebhookURL="${var:discordwebhook}" DiscordWebhookMessage="&lt;@${var:discordID}&gt; ```${_event}``` " UseTTSTextExpression="food finished ending craft ${var:ReuseFoodN} food used" Enabled="False" ActionType="DiscordWebhook">
+                <Condition Enabled="false" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:CheckN}" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+                  <ConditionSingle Enabled="true" ExpressionL="${var:IdleN}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+                  <ConditionSingle Enabled="true" ExpressionL="${var:CheckK}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  <ConditionSingle Enabled="true" ExpressionL="${var:CheckK}" ExpressionTypeL="Numeric" ExpressionR="6000" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+                  <ConditionGroup Enabled="true" Grouping="And">
+                    <ConditionSingle Enabled="true" ExpressionL="${var:CheckK}" ExpressionTypeL="Numeric" ExpressionR="63" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+                    <ConditionSingle Enabled="true" ExpressionL="${var:CheckK}" ExpressionTypeL="Numeric" ExpressionR="256" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                  </ConditionGroup>
+                </Condition>
+              </Action>
+              <Action OrderNumber="2" FolderOp="DisableFolder" FolderId="2d1410d4-c0d3-4cd8-ba6e-5ccfcdfeea82" ActionType="Folder" ExecutionDelayExpression="5000">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+          <Trigger Enabled="true" Name="You cannot carry more MGF" Id="3c847d3c-6809-4a24-aafa-96d3b5ac4bd1" RegularExpression="You cannot carry more MGF">
+            <Actions>
+              <Action OrderNumber="1" DiscordWebhookURL="${var:discordwebhook}" DiscordWebhookMessage="&lt;@${var:discordID}&gt; ```${_event}``` " UseTTSTextExpression="food finished ending craft ${var:ReuseFoodN} food used" ActionType="DiscordWebhook">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" TriggerId="a7c9433e-6169-4c97-9bb3-0549a06c07a1" TriggerForce="regexp" ActionType="Trigger">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="3" UseTTSTextExpression="${_event}" ActionType="UseTTS">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+          <Trigger Enabled="true" Name="leaving early at round 1" Id="a7c9433e-6169-4c97-9bb3-0549a06c07a1" RegularExpression="">
+            <Actions>
+              <Action OrderNumber="1" KeypressType="WindowMessage" KeyPressCode="85" KeyPressWindow="FINAL FANTASY XIV" KeyPressProcId="${var:PID}" ActionType="KeyPress" ExecutionDelayExpression="500">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" KeypressType="WindowMessage" KeyPressCode="${var:DpadLeftKey}" KeyPressWindow="FINAL FANTASY XIV" KeyPressProcId="${var:PID}" ActionType="KeyPress" ExecutionDelayExpression="500">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="3" KeypressType="WindowMessage" KeyPressCode="${var:ConfirmKeyX}" KeyPressWindow="FINAL FANTASY XIV" KeyPressProcId="${var:PID}" ActionType="KeyPress" ExecutionDelayExpression="250">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="4" KeypressType="WindowMessage" KeyPressCode="${var:DpadLeftKey}" KeyPressWindow="FINAL FANTASY XIV" KeyPressProcId="${var:PID}" ActionType="KeyPress" ExecutionDelayExpression="500">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="5" KeypressType="WindowMessage" KeyPressCode="${var:ConfirmKeyX}" KeyPressWindow="FINAL FANTASY XIV" KeyPressProcId="${var:PID}" ActionType="KeyPress" ExecutionDelayExpression="250">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
         </Triggers>
       </Folder>
     </Folders>
-    <Triggers>
-      <Trigger Enabled="true" Name="[GM]" Id="1a6467f7-6d3f-4a81-b40d-48de2b5780c6" RegularExpression="\[GM\]">
-        <Actions>
-          <Action OrderNumber="1" DiscordWebhookURL="${var:discordwebhook}" DiscordWebhookMessage="&lt;@${var:discordID}&gt; ```${_event}``` " UseTTSTextExpression="food finished ending craft ${var:ReuseFoodN} food used" Enabled="False" ActionType="DiscordWebhook">
-            <Condition Enabled="false" Grouping="Or">
-              <ConditionSingle Enabled="true" ExpressionL="${var:CheckN}" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
-              <ConditionSingle Enabled="true" ExpressionL="${var:IdleN}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
-              <ConditionSingle Enabled="true" ExpressionL="${var:CheckK}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-              <ConditionSingle Enabled="true" ExpressionL="${var:CheckK}" ExpressionTypeL="Numeric" ExpressionR="6000" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
-              <ConditionGroup Enabled="true" Grouping="And">
-                <ConditionSingle Enabled="true" ExpressionL="${var:CheckK}" ExpressionTypeL="Numeric" ExpressionR="63" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
-                <ConditionSingle Enabled="true" ExpressionL="${var:CheckK}" ExpressionTypeL="Numeric" ExpressionR="256" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
-              </ConditionGroup>
-            </Condition>
-          </Action>
-          <Action OrderNumber="2" FolderOp="DisableFolder" FolderId="2d1410d4-c0d3-4cd8-ba6e-5ccfcdfeea82" ActionType="Folder" ExecutionDelayExpression="5000">
-            <Condition Enabled="false" Grouping="Or" />
-          </Action>
-        </Actions>
-        <Condition Enabled="false" Grouping="Or" />
-        <Conditions />
-      </Trigger>
-    </Triggers>
+    <Triggers />
   </ExportedFolder>
 </TriggernometryExport>
